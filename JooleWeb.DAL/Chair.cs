@@ -7,17 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JooleWeb.Models
+namespace JooleWeb.DAL
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderDetail
+    public partial class Chair
     {
         public int ProductID { get; set; }
-        public int OrderID { get; set; }
-        public int Quantity { get; set; }
+        public int subCategoryID { get; set; }
+        public Nullable<byte> ProductHeight { get; set; }
+        public Nullable<byte> ProductWidth { get; set; }
+        public string FrameMaterial { get; set; }
     
-        public virtual Order Order { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual SubCategory SubCategory { get; set; }
     }
 }

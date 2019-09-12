@@ -7,41 +7,37 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JooleWeb.Models
+namespace JooleWeb.DAL
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class SubCategory
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
+        public SubCategory()
         {
-            this.Tables = new HashSet<Table>();
-            this.TVs = new HashSet<TV>();
+            this.Products = new HashSet<Product>();
             this.Chairs = new HashSet<Chair>();
             this.HomeTheaters = new HashSet<HomeTheater>();
+            this.Tables = new HashSet<Table>();
+            this.TVs = new HashSet<TV>();
         }
     
-        public int ProductID { get; set; }
-        public string ProductsName { get; set; }
-        public int CustomerID { get; set; }
+        public int subCategoryID { get; set; }
         public int CategoryID { get; set; }
-        public Nullable<decimal> Price { get; set; }
-        public int SubcategoryID { get; set; }
-        public string ProductImage { get; set; }
-        public string Description { get; set; }
+        public string subCategoryName { get; set; }
     
         public virtual Category Category { get; set; }
-        public virtual Customer Customer { get; set; }
-        public virtual SubCategory SubCategory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Table> Tables { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TV> TVs { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Chair> Chairs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HomeTheater> HomeTheaters { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Table> Tables { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TV> TVs { get; set; }
     }
 }

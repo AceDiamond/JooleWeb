@@ -7,20 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JooleWeb.Models
+namespace JooleWeb.DAL
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class TV
+    public partial class Consumer
     {
-        public int ProductID { get; set; }
-        public int subCategoryID { get; set; }
-        public string DisplayType { get; set; }
-        public string VerticalResolution { get; set; }
-        public Nullable<byte> ScreenSize { get; set; }
+        public int ConsumersID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string DeliveryAddress { get; set; }
+        public string Email { get; set; }
+        public string phone { get; set; }
+        public int UserID { get; set; }
     
-        public virtual Product Product { get; set; }
-        public virtual SubCategory SubCategory { get; set; }
+        public virtual User User { get; set; }
     }
 }

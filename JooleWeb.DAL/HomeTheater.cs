@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JooleWeb.Models
+namespace JooleWeb.DAL
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Table
+    public partial class HomeTheater
     {
         public int ProductID { get; set; }
         public int subCategoryID { get; set; }
-        public Nullable<byte> ProductHeight { get; set; }
-        public Nullable<byte> ProductLength { get; set; }
-        public string MountStyle { get; set; }
+        public string MaximumVideoResolution { get; set; }
+        public Nullable<bool> SurroundSound { get; set; }
+        public Nullable<decimal> NumberofChannels { get; set; }
     
         public virtual Product Product { get; set; }
         public virtual SubCategory SubCategory { get; set; }
