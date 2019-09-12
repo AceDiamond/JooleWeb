@@ -1,0 +1,1043 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Joole_RBBTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Joole_RBBT.dbo.Chair' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Chair">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="subCategoryID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="subCategoryID" Type="int" Nullable="false" />
+          <Property Name="ProductHeight" Type="tinyint" />
+          <Property Name="ProductWidth" Type="tinyint" />
+          <Property Name="FrameMaterial" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Consumers">
+          <Key>
+            <PropertyRef Name="ConsumersID" />
+          </Key>
+          <Property Name="ConsumersID" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="DeliveryAddress" Type="varchar" MaxLength="200" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="phone" Type="varchar" MaxLength="20" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="50" />
+          <Property Name="Website" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="phone" Type="varchar" MaxLength="20" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Joole_RBBT.dbo.HomeTheater' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="HomeTheater">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="subCategoryID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="subCategoryID" Type="int" Nullable="false" />
+          <Property Name="MaximumVideoResolution" Type="varchar" MaxLength="20" />
+          <Property Name="SurroundSound" Type="bit" />
+          <Property Name="NumberofChannels" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Joole_RBBT.dbo.OrderDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="OrderDetails">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="Quantity" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="TotalPrice" Type="money" />
+          <Property Name="DateOfOrder" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="ProductsName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="Price" Type="money" />
+          <Property Name="SubcategoryID" Type="int" Nullable="false" />
+          <Property Name="ProductImage" Type="varchar" MaxLength="200" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="subCategoryID" />
+          </Key>
+          <Property Name="subCategoryID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="subCategoryName" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Joole_RBBT.dbo.Table' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="subCategoryID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="subCategoryID" Type="int" Nullable="false" />
+          <Property Name="ProductHeight" Type="tinyint" />
+          <Property Name="ProductLength" Type="tinyint" />
+          <Property Name="MountStyle" Type="text" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TV">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="subCategoryID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="subCategoryID" Type="int" Nullable="false" />
+          <Property Name="DisplayType" Type="varchar" MaxLength="20" />
+          <Property Name="VerticalResolution" Type="varchar" MaxLength="20" />
+          <Property Name="ScreenSize" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Avatan" Type="varchar" MaxLength="200" />
+          <Property Name="Credentials" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="Consumer_FK">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Consumers" Type="Self.Consumers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Consumers">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Customers_FK">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderDrtails_FK">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Orders_FK">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductsCategory_FK">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductsChair_FK">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Chair" Type="Self.Chair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Chair">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductsCustomer_FK">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductsHomeTheater_FK">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="HomeTheater" Type="Self.HomeTheater" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="HomeTheater">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductsSubCategory_FK">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="subCategoryID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="SubcategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductsTable_FK">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Table" Type="Self.Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Table">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductsTV_FK">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="TV" Type="Self.TV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="TV">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SubCategory_FK">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="SubCategory">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SubCategoryChair_FK">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
+          <End Role="Chair" Type="Self.Chair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="subCategoryID" />
+            </Principal>
+            <Dependent Role="Chair">
+              <PropertyRef Name="subCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SubCategoryHomeTheater_FK">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
+          <End Role="HomeTheater" Type="Self.HomeTheater" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="subCategoryID" />
+            </Principal>
+            <Dependent Role="HomeTheater">
+              <PropertyRef Name="subCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SubCategoryTable_FK">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
+          <End Role="Table" Type="Self.Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="subCategoryID" />
+            </Principal>
+            <Dependent Role="Table">
+              <PropertyRef Name="subCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SubCategoryTV_FK">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
+          <End Role="TV" Type="Self.TV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="subCategoryID" />
+            </Principal>
+            <Dependent Role="TV">
+              <PropertyRef Name="subCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Joole_RBBTModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Consumers" EntityType="Self.Consumers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Chair" EntityType="Self.Chair" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Chair].[ProductID] AS [ProductID], 
+    [Chair].[subCategoryID] AS [subCategoryID], 
+    [Chair].[ProductHeight] AS [ProductHeight], 
+    [Chair].[ProductWidth] AS [ProductWidth], 
+    [Chair].[FrameMaterial] AS [FrameMaterial]
+    FROM [dbo].[Chair] AS [Chair]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="HomeTheater" EntityType="Self.HomeTheater" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [HomeTheater].[ProductID] AS [ProductID], 
+    [HomeTheater].[subCategoryID] AS [subCategoryID], 
+    [HomeTheater].[MaximumVideoResolution] AS [MaximumVideoResolution], 
+    [HomeTheater].[SurroundSound] AS [SurroundSound], 
+    [HomeTheater].[NumberofChannels] AS [NumberofChannels]
+    FROM [dbo].[HomeTheater] AS [HomeTheater]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [OrderDetails].[ProductID] AS [ProductID], 
+    [OrderDetails].[OrderID] AS [OrderID], 
+    [OrderDetails].[Quantity] AS [Quantity]
+    FROM [dbo].[OrderDetails] AS [OrderDetails]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Table" EntityType="Self.Table" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Table].[ProductID] AS [ProductID], 
+    [Table].[subCategoryID] AS [subCategoryID], 
+    [Table].[ProductHeight] AS [ProductHeight], 
+    [Table].[ProductLength] AS [ProductLength], 
+    [Table].[MountStyle] AS [MountStyle]
+    FROM [dbo].[Table] AS [Table]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TV" EntityType="Self.TV" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TV].[ProductID] AS [ProductID], 
+    [TV].[subCategoryID] AS [subCategoryID], 
+    [TV].[DisplayType] AS [DisplayType], 
+    [TV].[VerticalResolution] AS [VerticalResolution], 
+    [TV].[ScreenSize] AS [ScreenSize]
+    FROM [dbo].[TV] AS [TV]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="Consumer_FK" Association="Self.Consumer_FK">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Consumers" EntitySet="Consumers" />
+          </AssociationSet>
+          <AssociationSet Name="Customers_FK" Association="Self.Customers_FK">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="OrderDrtails_FK" Association="Self.OrderDrtails_FK">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="Orders_FK" Association="Self.Orders_FK">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="ProductsCategory_FK" Association="Self.ProductsCategory_FK">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="ProductsChair_FK" Association="Self.ProductsChair_FK">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Chair" EntitySet="Chair" />
+          </AssociationSet>
+          <AssociationSet Name="ProductsCustomer_FK" Association="Self.ProductsCustomer_FK">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="ProductsHomeTheater_FK" Association="Self.ProductsHomeTheater_FK">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="HomeTheater" EntitySet="HomeTheater" />
+          </AssociationSet>
+          <AssociationSet Name="ProductsSubCategory_FK" Association="Self.ProductsSubCategory_FK">
+            <End Role="SubCategory" EntitySet="SubCategory" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="ProductsTable_FK" Association="Self.ProductsTable_FK">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Table" EntitySet="Table" />
+          </AssociationSet>
+          <AssociationSet Name="ProductsTV_FK" Association="Self.ProductsTV_FK">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="TV" EntitySet="TV" />
+          </AssociationSet>
+          <AssociationSet Name="SubCategory_FK" Association="Self.SubCategory_FK">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="SubCategory" EntitySet="SubCategory" />
+          </AssociationSet>
+          <AssociationSet Name="SubCategoryChair_FK" Association="Self.SubCategoryChair_FK">
+            <End Role="SubCategory" EntitySet="SubCategory" />
+            <End Role="Chair" EntitySet="Chair" />
+          </AssociationSet>
+          <AssociationSet Name="SubCategoryHomeTheater_FK" Association="Self.SubCategoryHomeTheater_FK">
+            <End Role="SubCategory" EntitySet="SubCategory" />
+            <End Role="HomeTheater" EntitySet="HomeTheater" />
+          </AssociationSet>
+          <AssociationSet Name="SubCategoryTable_FK" Association="Self.SubCategoryTable_FK">
+            <End Role="SubCategory" EntitySet="SubCategory" />
+            <End Role="Table" EntitySet="Table" />
+          </AssociationSet>
+          <AssociationSet Name="SubCategoryTV_FK" Association="Self.SubCategoryTV_FK">
+            <End Role="SubCategory" EntitySet="SubCategory" />
+            <End Role="TV" EntitySet="TV" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Joole_RBBTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.ProductsCategory_FK" FromRole="Category" ToRole="Products" />
+          <NavigationProperty Name="SubCategories" Relationship="Self.SubCategory_FK" FromRole="Category" ToRole="SubCategory" />
+        </EntityType>
+        <EntityType Name="Consumer">
+          <Key>
+            <PropertyRef Name="ConsumersID" />
+          </Key>
+          <Property Name="ConsumersID" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DeliveryAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.Consumer_FK" FromRole="Consumers" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.Customers_FK" FromRole="Customers" ToRole="Users" />
+          <NavigationProperty Name="Products" Relationship="Self.ProductsCustomer_FK" FromRole="Customers" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DateOfOrder" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.OrderDrtails_FK" FromRole="Orders" ToRole="OrderDetails" />
+          <NavigationProperty Name="User" Relationship="Self.Orders_FK" FromRole="Orders" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="ProductsName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SubcategoryID" Type="Int32" Nullable="false" />
+          <Property Name="ProductImage" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Category" Relationship="Self.ProductsCategory_FK" FromRole="Products" ToRole="Category" />
+          <NavigationProperty Name="Customer" Relationship="Self.ProductsCustomer_FK" FromRole="Products" ToRole="Customers" />
+          <NavigationProperty Name="Chairs" Relationship="Self.ProductsChair_FK" FromRole="Products" ToRole="Chair" />
+          <NavigationProperty Name="HomeTheaters" Relationship="Self.ProductsHomeTheater_FK" FromRole="Products" ToRole="HomeTheater" />
+          <NavigationProperty Name="SubCategory" Relationship="Self.ProductsSubCategory_FK" FromRole="Products" ToRole="SubCategory" />
+          <NavigationProperty Name="Tables" Relationship="Self.ProductsTable_FK" FromRole="Products" ToRole="Table" />
+          <NavigationProperty Name="TVs" Relationship="Self.ProductsTV_FK" FromRole="Products" ToRole="TV" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="subCategoryID" />
+          </Key>
+          <Property Name="subCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="subCategoryName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="Self.SubCategory_FK" FromRole="SubCategory" ToRole="Category" />
+          <NavigationProperty Name="Products" Relationship="Self.ProductsSubCategory_FK" FromRole="SubCategory" ToRole="Products" />
+          <NavigationProperty Name="Chairs" Relationship="Self.SubCategoryChair_FK" FromRole="SubCategory" ToRole="Chair" />
+          <NavigationProperty Name="HomeTheaters" Relationship="Self.SubCategoryHomeTheater_FK" FromRole="SubCategory" ToRole="HomeTheater" />
+          <NavigationProperty Name="Tables" Relationship="Self.SubCategoryTable_FK" FromRole="SubCategory" ToRole="Table" />
+          <NavigationProperty Name="TVs" Relationship="Self.SubCategoryTV_FK" FromRole="SubCategory" ToRole="TV" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Avatan" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Credentials" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Consumers" Relationship="Self.Consumer_FK" FromRole="Users" ToRole="Consumers" />
+          <NavigationProperty Name="Customers" Relationship="Self.Customers_FK" FromRole="Users" ToRole="Customers" />
+          <NavigationProperty Name="Orders" Relationship="Self.Orders_FK" FromRole="Users" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Chair">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="subCategoryID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="subCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="ProductHeight" Type="Byte" />
+          <Property Name="ProductWidth" Type="Byte" />
+          <Property Name="FrameMaterial" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Product" Relationship="Self.ProductsChair_FK" FromRole="Chair" ToRole="Products" />
+          <NavigationProperty Name="SubCategory" Relationship="Self.SubCategoryChair_FK" FromRole="Chair" ToRole="SubCategory" />
+        </EntityType>
+        <EntityType Name="HomeTheater">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="subCategoryID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="subCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="MaximumVideoResolution" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SurroundSound" Type="Boolean" />
+          <Property Name="NumberofChannels" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Product" Relationship="Self.ProductsHomeTheater_FK" FromRole="HomeTheater" ToRole="Products" />
+          <NavigationProperty Name="SubCategory" Relationship="Self.SubCategoryHomeTheater_FK" FromRole="HomeTheater" ToRole="SubCategory" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="Quantity" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="Self.OrderDrtails_FK" FromRole="OrderDetails" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="subCategoryID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="subCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="ProductHeight" Type="Byte" />
+          <Property Name="ProductLength" Type="Byte" />
+          <Property Name="MountStyle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Product" Relationship="Self.ProductsTable_FK" FromRole="Table" ToRole="Products" />
+          <NavigationProperty Name="SubCategory" Relationship="Self.SubCategoryTable_FK" FromRole="Table" ToRole="SubCategory" />
+        </EntityType>
+        <EntityType Name="TV">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="subCategoryID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="subCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="DisplayType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VerticalResolution" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ScreenSize" Type="Byte" />
+          <NavigationProperty Name="Product" Relationship="Self.ProductsTV_FK" FromRole="TV" ToRole="Products" />
+          <NavigationProperty Name="SubCategory" Relationship="Self.SubCategoryTV_FK" FromRole="TV" ToRole="SubCategory" />
+        </EntityType>
+        <Association Name="ProductsCategory_FK">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SubCategory_FK">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="SubCategory">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Consumer_FK">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Consumers" Type="Self.Consumer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Consumers">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Customers_FK">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Customers" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductsCustomer_FK">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderDrtails_FK">
+          <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Orders_FK">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductsChair_FK">
+          <End Role="Products" Type="Self.Product" Multiplicity="1" />
+          <End Role="Chair" Type="Self.Chair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Chair">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductsHomeTheater_FK">
+          <End Role="Products" Type="Self.Product" Multiplicity="1" />
+          <End Role="HomeTheater" Type="Self.HomeTheater" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="HomeTheater">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductsSubCategory_FK">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="subCategoryID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="SubcategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductsTable_FK">
+          <End Role="Products" Type="Self.Product" Multiplicity="1" />
+          <End Role="Table" Type="Self.Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Table">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductsTV_FK">
+          <End Role="Products" Type="Self.Product" Multiplicity="1" />
+          <End Role="TV" Type="Self.TV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="TV">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SubCategoryChair_FK">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
+          <End Role="Chair" Type="Self.Chair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="subCategoryID" />
+            </Principal>
+            <Dependent Role="Chair">
+              <PropertyRef Name="subCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SubCategoryHomeTheater_FK">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
+          <End Role="HomeTheater" Type="Self.HomeTheater" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="subCategoryID" />
+            </Principal>
+            <Dependent Role="HomeTheater">
+              <PropertyRef Name="subCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SubCategoryTable_FK">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
+          <End Role="Table" Type="Self.Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="subCategoryID" />
+            </Principal>
+            <Dependent Role="Table">
+              <PropertyRef Name="subCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SubCategoryTV_FK">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
+          <End Role="TV" Type="Self.TV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="subCategoryID" />
+            </Principal>
+            <Dependent Role="TV">
+              <PropertyRef Name="subCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Joole_RBBTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Consumers" EntityType="Self.Consumer" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="SubCategories" EntityType="Self.SubCategory" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Chairs" EntityType="Self.Chair" />
+          <EntitySet Name="HomeTheaters" EntityType="Self.HomeTheater" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+          <EntitySet Name="Tables" EntityType="Self.Table" />
+          <EntitySet Name="TVs" EntityType="Self.TV" />
+          <AssociationSet Name="ProductsCategory_FK" Association="Self.ProductsCategory_FK">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="SubCategory_FK" Association="Self.SubCategory_FK">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="SubCategory" EntitySet="SubCategories" />
+          </AssociationSet>
+          <AssociationSet Name="Consumer_FK" Association="Self.Consumer_FK">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Consumers" EntitySet="Consumers" />
+          </AssociationSet>
+          <AssociationSet Name="Customers_FK" Association="Self.Customers_FK">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="ProductsCustomer_FK" Association="Self.ProductsCustomer_FK">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="OrderDrtails_FK" Association="Self.OrderDrtails_FK">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="Orders_FK" Association="Self.Orders_FK">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="ProductsChair_FK" Association="Self.ProductsChair_FK">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Chair" EntitySet="Chairs" />
+          </AssociationSet>
+          <AssociationSet Name="ProductsHomeTheater_FK" Association="Self.ProductsHomeTheater_FK">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="HomeTheater" EntitySet="HomeTheaters" />
+          </AssociationSet>
+          <AssociationSet Name="ProductsSubCategory_FK" Association="Self.ProductsSubCategory_FK">
+            <End Role="SubCategory" EntitySet="SubCategories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="ProductsTable_FK" Association="Self.ProductsTable_FK">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Table" EntitySet="Tables" />
+          </AssociationSet>
+          <AssociationSet Name="ProductsTV_FK" Association="Self.ProductsTV_FK">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="TV" EntitySet="TVs" />
+          </AssociationSet>
+          <AssociationSet Name="SubCategoryChair_FK" Association="Self.SubCategoryChair_FK">
+            <End Role="SubCategory" EntitySet="SubCategories" />
+            <End Role="Chair" EntitySet="Chairs" />
+          </AssociationSet>
+          <AssociationSet Name="SubCategoryHomeTheater_FK" Association="Self.SubCategoryHomeTheater_FK">
+            <End Role="SubCategory" EntitySet="SubCategories" />
+            <End Role="HomeTheater" EntitySet="HomeTheaters" />
+          </AssociationSet>
+          <AssociationSet Name="SubCategoryTable_FK" Association="Self.SubCategoryTable_FK">
+            <End Role="SubCategory" EntitySet="SubCategories" />
+            <End Role="Table" EntitySet="Tables" />
+          </AssociationSet>
+          <AssociationSet Name="SubCategoryTV_FK" Association="Self.SubCategoryTV_FK">
+            <End Role="SubCategory" EntitySet="SubCategories" />
+            <End Role="TV" EntitySet="TVs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Joole_RBBTModelStoreContainer" CdmEntityContainer="Joole_RBBTEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="Joole_RBBTModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Consumers">
+            <EntityTypeMapping TypeName="Joole_RBBTModel.Consumer">
+              <MappingFragment StoreEntitySet="Consumers">
+                <ScalarProperty Name="ConsumersID" ColumnName="ConsumersID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DeliveryAddress" ColumnName="DeliveryAddress" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="Joole_RBBTModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="Joole_RBBTModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="DateOfOrder" ColumnName="DateOfOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="Joole_RBBTModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductsName" ColumnName="ProductsName" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="SubcategoryID" ColumnName="SubcategoryID" />
+                <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubCategories">
+            <EntityTypeMapping TypeName="Joole_RBBTModel.SubCategory">
+              <MappingFragment StoreEntitySet="SubCategory">
+                <ScalarProperty Name="subCategoryID" ColumnName="subCategoryID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="subCategoryName" ColumnName="subCategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Joole_RBBTModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Avatan" ColumnName="Avatan" />
+                <ScalarProperty Name="Credentials" ColumnName="Credentials" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chairs">
+            <EntityTypeMapping TypeName="Joole_RBBTModel.Chair">
+              <MappingFragment StoreEntitySet="Chair">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="subCategoryID" ColumnName="subCategoryID" />
+                <ScalarProperty Name="ProductHeight" ColumnName="ProductHeight" />
+                <ScalarProperty Name="ProductWidth" ColumnName="ProductWidth" />
+                <ScalarProperty Name="FrameMaterial" ColumnName="FrameMaterial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HomeTheaters">
+            <EntityTypeMapping TypeName="Joole_RBBTModel.HomeTheater">
+              <MappingFragment StoreEntitySet="HomeTheater">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="subCategoryID" ColumnName="subCategoryID" />
+                <ScalarProperty Name="MaximumVideoResolution" ColumnName="MaximumVideoResolution" />
+                <ScalarProperty Name="SurroundSound" ColumnName="SurroundSound" />
+                <ScalarProperty Name="NumberofChannels" ColumnName="NumberofChannels" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="Joole_RBBTModel.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetails">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tables">
+            <EntityTypeMapping TypeName="Joole_RBBTModel.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="subCategoryID" ColumnName="subCategoryID" />
+                <ScalarProperty Name="ProductHeight" ColumnName="ProductHeight" />
+                <ScalarProperty Name="ProductLength" ColumnName="ProductLength" />
+                <ScalarProperty Name="MountStyle" ColumnName="MountStyle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TVs">
+            <EntityTypeMapping TypeName="Joole_RBBTModel.TV">
+              <MappingFragment StoreEntitySet="TV">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="subCategoryID" ColumnName="subCategoryID" />
+                <ScalarProperty Name="DisplayType" ColumnName="DisplayType" />
+                <ScalarProperty Name="VerticalResolution" ColumnName="VerticalResolution" />
+                <ScalarProperty Name="ScreenSize" ColumnName="ScreenSize" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
