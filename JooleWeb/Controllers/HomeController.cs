@@ -48,10 +48,17 @@ namespace JooleWeb.Controllers
                 else
                 {
                     Session["userID"] = userDetails.UserID;
+                    Session["userName"] = userDetails.UserName;
                     return RedirectToAction("Index", "Home");
                 }
             }
-            return View();
+        }
+        public ActionResult logOut()
+        {
+            int userId = (int)Session["userID"];
+            Session.Abandon();
+            return RedirectToAction("login", "HomeController");
+
         }
 
     }
