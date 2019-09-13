@@ -8,7 +8,7 @@ namespace JooleWeb.Repo
     {
 
     }
-    internal class UserRepo : Repository<User>,IUSersRepo
+    internal class UserRepo : Repository<User>, IUSersRepo
     {
         private DbContext context;
 
