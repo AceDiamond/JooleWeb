@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
-using JooleWeb.Repo;
 
 namespace JooleWeb.Repo
 {
@@ -20,7 +15,7 @@ namespace JooleWeb.Repo
         public ISubCategory subCategory;
         public ITable table;
         public ITV tv;
-        public IUsers user;
+        public IUSersRepo user;
 
         public UnitOfWork(DbContext context)
         {
