@@ -16,10 +16,11 @@
 
 
 <div class="container h-auto">
-    <div id="loginbox" style="margin-top: 300px; margin-right:50px; position: absolute; border: 1Px solid #ccc; padding: 10px" , class="mainbox col-md-8 col-md-offset-6 col-sm-8 col-sm-offset-2">
+    <div id="loginbox" style="margin-top: 300px; margin-right:50px; position: absolute; border: 1Px solid #ccc; padding: 10px" >
         <div class="pannel-info">
             @using (Html.BeginForm("Authorize", "Home", FormMethod.Post))
-            {
+            {   
+                
                 <div class="form-group">
 
                     @Html.LabelFor(m => m.UserName)
