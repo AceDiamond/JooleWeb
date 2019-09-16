@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F445DD0A-BB27-4967-84B9-4AD204361163}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>JooleWeb.SEV</RootNamespace>
     <AssemblyName>JooleWeb.SEV</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -44,6 +47,20 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="SearchServices.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JooleWeb.DAL\JooleWeb.DAL.csproj">
+      <Project>{971630CE-D9E4-465F-95FA-F29DF26601E3}</Project>
+      <Name>JooleWeb.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JooleWeb.Repo\JooleWeb.Repo.csproj">
+      <Project>{91656e5d-91da-4728-ac21-4a0a592c5b50}</Project>
+      <Name>JooleWeb.Repo</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

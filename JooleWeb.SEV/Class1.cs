@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JooleWeb.Repo
+namespace JooleWeb.SEV
 {
     class Class1
     {

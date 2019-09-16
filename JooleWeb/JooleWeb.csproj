@@ -135,6 +135,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategoryAndSubCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -205,12 +206,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Search\Search.cshtml" />
     <Content Include="Views\ProductDetails\ProductDetails.cshtml" />
+    <Content Include="Views\Search\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Summary\" />
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +223,16 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JooleWeb.DAL\JooleWeb.DAL.csproj">
+      <Project>{971630CE-D9E4-465F-95FA-F29DF26601E3}</Project>
+      <Name>JooleWeb.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JooleWeb.SEV\JooleWeb.SEV.csproj">
+      <Project>{f445dd0a-bb27-4967-84b9-4ad204361163}</Project>
+      <Name>JooleWeb.SEV</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

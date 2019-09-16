@@ -1,24 +1,52 @@
-﻿using System;
+﻿using JooleWeb.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using JooleWeb.SEV;
 
 namespace JooleWeb.Controllers
 {
     public class SearchController : Controller
     {
         // GET: Search
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult Index(int? value)
         {
-            return View("Search");
-        }
+            List<Category_M> listObj = new List<Category_M>();
+            //foreach (var tempCatego in new JooleWeb.SEV.SearchServices().GetCategories())
+            foreach (var tempCatego in new SearchServices().GetCategories())
+            {
 
-        public ActionResult LoadCategory()
-        {
-            List<SelectListItem> li = new List<SelectListItem>();
-            ViewData["Category"] = li;
+                Category_M tempObj = new Category_M();
+                tempObj.Category_ID = tempCatego.CategoryID;
+                tempObj.Category_Name = tempCatego.CategoryName;
+                listObj.Add(tempObj);
+
+            }
+
+            ViewBag.Category = new SelectList(listObj, "Category_ID", "Category_Name");
+
+            if (value != null)
+            {
+                SubCategory_M tempSubCategory = new SubCategory_M();
+
+                List<string> subCategoList = new List<string>();
+
+                int val = (int)value;
+
+                foreach (var temp in new SearchServices().GetSubCategories(val))
+                {
+                    subCategoList.Add(temp.subCategoryName);
+                }
+
+                tempSubCategory.SubCategory_Name = subCategoList;
+                ViewBag.subCategory = new SelectList(subCategoList);
+            }
             return View();
         }
+
+
     }
 }
