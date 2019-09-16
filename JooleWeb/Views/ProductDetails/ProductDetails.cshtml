@@ -12,10 +12,10 @@
 <br />
 <br />
 <div class="topnav">
-    <a class="active" href="#home">Home</a>
-    <a href="#Product Details">Product Details</a>
-    <a href="#Product Summary">Product Summary</a>
-    <a href="#About">About</a>
+    <a class="active" href="@Url.Action("Index", "Search")">Home</a>
+    <a href="@Url.Action("Index", "ProductDetails")">Product Details</a>
+    <a href="@Url.Action("ProductSummary", "Home")">Product Summary</a>
+    <a href="@Url.Action("Contact", "Home")">About</a>
     <div class="search-container">
         <form action="/action_page.php">
             <input type="text" placeholder="Search Product.." name="search">
