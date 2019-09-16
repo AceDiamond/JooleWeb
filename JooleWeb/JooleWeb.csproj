@@ -142,6 +142,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Background.css" />
+    <Content Include="Content\Navigation bar.css" />
     <Content Include="Content\Position.css" />
     <Content Include="Content\search.css" />
     <Content Include="Content\Table.css" />

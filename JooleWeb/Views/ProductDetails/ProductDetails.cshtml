@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <br />
 <br />
 <br />
@@ -12,12 +11,17 @@
 <br />
 <br />
 <br />
-<div class="w3-bar w3-light-blue w3-border w3-padding">
-    <a href="#" class="w3-bar-item w3-button">Home</a>
-    <a href="#" class="w3-bar-item w3-button">Product Summary</a>
-    <a href="#" class="w3-bar-item w3-button">Contact</a>
-    <input type="text" class="w3-bar-item w3-input w3-white w3-mobile" placeholder="Search..">
-    <button class="w3-bar-item w3-button w3-green w3-mobile">Go</button>
+<div class="topnav">
+    <a class="active" href="#home">Home</a>
+    <a href="#Product Details">Product Details</a>
+    <a href="#Product Summary">Product Summary</a>
+    <a href="#About">About</a>
+    <div class="search-container">
+        <form action="/action_page.php">
+            <input type="text" placeholder="Search Product.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
 </div>
 <br />
 <br />
@@ -51,3 +55,5 @@
 
 <link href="~/Content/Position.css" rel="stylesheet" id="bootstrap-css">
 <link href="~/Content/Table.css" rel="stylesheet" id="bootstrap-css">
+<link href="~/Content/Navigation bar.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
