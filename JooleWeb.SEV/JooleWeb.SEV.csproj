@@ -49,9 +49,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SearchServices.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\JooleWeb.DAL\JooleWeb.DAL.csproj">
       <Project>{971630CE-D9E4-465F-95FA-F29DF26601E3}</Project>
       <Name>JooleWeb.DAL</Name>
@@ -60,6 +57,9 @@
       <Project>{91656e5d-91da-4728-ac21-4a0a592c5b50}</Project>
       <Name>JooleWeb.Repo</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Service.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

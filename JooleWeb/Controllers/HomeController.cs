@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JooleWeb.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,6 +27,5 @@ namespace JooleWeb.Controllers
 
             return View();
         }
-            
     }
 }
