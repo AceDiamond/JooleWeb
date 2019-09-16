@@ -1,5 +1,4 @@
-﻿using JooleWeb.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,7 +7,7 @@ using System.Web.Mvc;
 namespace JooleWeb.Controllers
 {
     public class HomeController : Controller
-    {//
+    {
         public ActionResult Index()
         {
             return View();
@@ -29,30 +28,31 @@ namespace JooleWeb.Controllers
         }
         public ActionResult login()
         {
-            User user = new User();
+           //User user = new User();
             //user.UserName = "Paul changed";
-            return View("login",user);
+            return View("login");
            
         }
-        [HttpPost]
-        public ActionResult Authorize(JooleWeb.Models.User userModel)
-        {
-            using (Joole_RBBTEntities db=new Joole_RBBTEntities())
-            {
-                var userDetails = db.Users.Where(x => x.UserName == userModel.UserName && x.Password == userModel.Password).FirstOrDefault();
-                if(userDetails == null)
-                {
-                    userModel.LoginErrorMessage = "Wrong user name or password";
-                    return View("login", userModel);
-                }
-                else
-                {
-                    Session["userID"] = userDetails.UserID;
-                    return RedirectToAction("Index", "Home");
-                }
-            }
-            return View();
-        }
+        /*[HttpPost]
 
+       public ActionResult Authorize(JooleWeb.Models.User userModel)
+       {
+           using (Joole_RBBTEntities db=new Joole_RBBTEntities())
+           {
+               var userDetails = db.Users.Where(x => x.UserName == userModel.UserName && x.Password == userModel.Password).FirstOrDefault();
+               if(userDetails == null)
+               {
+                   userModel.LoginErrorMessage = "Wrong user name or password";
+                   return View("login", userModel);
+               }
+               else
+               {
+                   Session["userID"] = userDetails.UserID;
+                   return RedirectToAction("Index", "Home");
+               }
+
+           return View();
+       }
+       }*/
     }
 }
