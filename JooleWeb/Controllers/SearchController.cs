@@ -16,7 +16,7 @@ namespace JooleWeb.Controllers
         {
             List<Category_M> listObj = new List<Category_M>();
             //foreach (var tempCatego in new JooleWeb.SEV.SearchServices().GetCategories())
-            foreach (var tempCatego in new SearchServices().GetCategories())
+            foreach (var tempCatego in new Service().GetCategories())
             {
 
                 Category_M tempObj = new Category_M();
@@ -36,7 +36,7 @@ namespace JooleWeb.Controllers
 
                 int val = (int)value;
 
-                foreach (var temp in new SearchServices().GetSubCategories(val))
+                foreach (var temp in new Service().GetSubCategories(val))
                 {
                     subCategoList.Add(temp.subCategoryName);
                 }

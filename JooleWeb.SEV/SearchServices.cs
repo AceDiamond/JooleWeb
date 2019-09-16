@@ -9,7 +9,7 @@ using JooleWeb.DAL;
 
 namespace JooleWeb.SEV
 {
-    public class SearchServices
+    public partial class Service
     {
         public static readonly  Joole_RBBTEntities context = new Joole_RBBTEntities();
 
