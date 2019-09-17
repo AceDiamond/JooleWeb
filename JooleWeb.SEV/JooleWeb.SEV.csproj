@@ -49,8 +49,11 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\JooleWeb.DAL\JooleWeb.DAL.csproj">
-      <Project>{971630CE-D9E4-465F-95FA-F29DF26601E3}</Project>
+      <Project>{971630ce-d9e4-465f-95fa-f29df26601e3}</Project>
       <Name>JooleWeb.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\JooleWeb.Repo\JooleWeb.Repo.csproj">
@@ -59,7 +62,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="login.cs" />
     <Compile Include="Service.cs" />
+    <Compile Include="Signup.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

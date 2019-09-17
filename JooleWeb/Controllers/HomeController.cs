@@ -1,19 +1,15 @@
-﻿using JooleWeb.Models;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using JooleWeb.Models;
 
 namespace JooleWeb.Controllers
 {
     public class HomeController : Controller
     {//
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -27,5 +23,14 @@ namespace JooleWeb.Controllers
 
             return View();
         }
+        [HttpPost]
+        public ActionResult Login()
+        {
+            ViewBag.Message = "Your Login page.";
+
+            return View();
+        }
+
+
     }
 }

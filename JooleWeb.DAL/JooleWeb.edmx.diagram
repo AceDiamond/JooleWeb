@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="cbafe175ea3345c8ba9dd3650b9a293e" Name="Diagram1">
+      <Diagram DiagramId="230d9f83eb8c401fbaa334d086956dd6" Name="Diagram1">
         <EntityTypeShape EntityType="Joole_RBBTModel.Category" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Joole_RBBTModel.Consumer" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Joole_RBBTModel.Customer" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
