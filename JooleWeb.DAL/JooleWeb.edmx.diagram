@@ -4,13 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9d35f5f2bd444d819c8333dc061cbb12" Name="Diagram1">
+      <Diagram DiagramId="230d9f83eb8c401fbaa334d086956dd6" Name="Diagram1">
         <EntityTypeShape EntityType="Joole_RBBTModel.Category" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Joole_RBBTModel.Consumer" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Joole_RBBTModel.Customer" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Joole_RBBTModel.Order" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
         <EntityTypeShape EntityType="Joole_RBBTModel.Product" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Joole_RBBTModel.SubCategory" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Joole_RBBTModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Joole_RBBTModel.User" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Joole_RBBTModel.Chair" Width="1.5" PointX="7.5" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Joole_RBBTModel.HomeTheater" Width="1.5" PointX="10.5" PointY="8.75" IsExpanded="true" />

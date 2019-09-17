@@ -3,64 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JooleWeb.DAL;
+using JooleWeb.Repo;
 
 namespace JooleWeb.SEV
 {
-    class login
+   public partial class Service
     {
-        private readonly object user;
-
-        public User User { get; private set; }
-
-        public login()
+        public bool login(string UserName, string Password)
         {
-            User = new User();
-            //user.UserName = "Paul changed";
-            return View("login", user);
-
-        }
-
-        private void View(string v, object user)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void View(string v, User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        [HttpPost]
-        public ActionResult Authorize(JooleWeb.Models.User userModel)
-        {
-            using (Joole_RBBTEntities db = new Joole_RBBTEntities())
+            bool UserLogIn;
+            UserLogIn = false;
+            foreach(User UserData in uow.user.GetAll().ToList())
             {
-                var userDetails = db.Users.Where(x => x.UserName == userModel.UserName && x.Password == userModel.Password).FirstOrDefault();
-                if (userDetails == null)
+                if(UserName == UserData.UserName)
                 {
-                    userModel.LoginErrorMessage = "Wrong user name or password";
-                    return View("login", userModel);
+                   if(Password == UserData.Password)
+                    {
+                        UserLogIn = true;
+                        break;
+                    }
+                    else
+                    {
+                        UserLogIn = false;
+                    }
                 }
                 else
                 {
-                    Session["userID"] = userDetails.UserID;
-                    Session["userName"] = userDetails.UserName;
-                    return RedirectToAction("Index", "Home");
+                    UserLogIn = false;
                 }
             }
+            
+            return UserLogIn;
         }
-        public ActionResult logOut()
-        {
-            int userId = (int)Session["userID"];
-            Session.Abandon();
-            return RedirectToAction("login", "HomeController");
 
-        }
     }
-
-    internal class User
-    {
-        public User()
-        {
-        }
-    }
+}

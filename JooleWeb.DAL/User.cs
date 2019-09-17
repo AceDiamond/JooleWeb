@@ -26,7 +26,7 @@ namespace JooleWeb.DAL
         public string UserName { get; set; }
         public string Password { get; set; }
         public string Avatan { get; set; }
-        public bool Credentials { get; set; }
+        public Nullable<int> Credentials { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Consumer> Consumers { get; set; }
