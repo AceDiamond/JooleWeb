@@ -1,6 +1,11 @@
 ﻿@{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("login");
+    }
+
 }
 
     <div>
@@ -11,3 +16,4 @@
             Click Me Contact!
         </button>
     </div>
+<a href="@Url.Action("logOut","login")">LogOut</a>

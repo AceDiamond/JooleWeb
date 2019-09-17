@@ -13,5 +13,12 @@ namespace JooleWeb.Controllers
         {
             return View("Search");
         }
+
+        public ActionResult LoadCategory()
+        {
+            List<SelectListItem> li = new List<SelectListItem>();
+            ViewData["Category"] = li;
+            return View();
+        }
     }
 }

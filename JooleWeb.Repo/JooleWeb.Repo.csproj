@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{91656E5D-91DA-4728-AC21-4A0A592C5B50}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>JooleWeb.Repo</RootNamespace>
     <AssemblyName>JooleWeb.Repo</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -32,9 +32,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -50,24 +47,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICategory.cs" />
-    <Compile Include="IChair.cs" />
-    <Compile Include="IConsumer.cs" />
-    <Compile Include="ICustomer.cs" />
-    <Compile Include="IHomeTheater.cs" />
-    <Compile Include="IProduct.cs" />
+    <Compile Include="Category.cs" />
     <Compile Include="IRepository.cs" />
-    <Compile Include="ISubCategory.cs" />
-    <Compile Include="ITable.cs" />
-    <Compile Include="ITV.cs" />
-    <Compile Include="UnitOfWork.cs" />
-    <Compile Include="UserRepo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\JooleWeb.DAL\JooleWeb.DAL.csproj">
-      <Project>{971630ce-d9e4-465f-95fa-f29df26601e3}</Project>
-      <Name>JooleWeb.DAL</Name>
-    </ProjectReference>
+    <Compile Include="IUsers.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
