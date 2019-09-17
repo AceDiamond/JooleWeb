@@ -15,7 +15,7 @@ namespace JooleWeb.SEV
         public static readonly Joole_RBBTEntities context = new Joole_RBBTEntities();
         UnitOfWork uow = new UnitOfWork(context);
         protected readonly DbContext Context;
-        public Service(DbContext context)
+        public Service()
         {
             Context = context;
         }
