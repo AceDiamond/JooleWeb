@@ -12,15 +12,12 @@ namespace JooleWeb.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Table
+    public partial class sysdiagram
     {
-        public int ProductID { get; set; }
-        public int subCategoryID { get; set; }
-        public Nullable<decimal> ProductHeight { get; set; }
-        public Nullable<decimal> ProductLength { get; set; }
-        public string MountStyle { get; set; }
-    
-        public virtual Product Product { get; set; }
-        public virtual SubCategory SubCategory { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
