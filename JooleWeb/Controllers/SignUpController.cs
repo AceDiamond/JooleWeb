@@ -13,5 +13,27 @@ namespace JooleWeb.Controllers
         {
             return View("Index");
         }
+
+        public ActionResult Create(string UserName, string phone, string Email, string Password, string ConfirmPassword, string Credentials)
+        {   
+            if(Password != ConfirmPassword)
+            {
+                return View();//message "the Password does not match!"
+            }
+            else
+            {
+                JooleWeb.SEV.Service SignUpService = new JooleWeb.SEV.Service();
+                bool Success = SignUpService.SignUp(UserName, phone, Email, Password, Credentials);
+                if(Success == true)
+                {
+                    return RedirectToAction("Search", "Search");
+                }
+                else
+                {
+                    return View("Index");
+                }
+            }
+        }
+     
     }
 }

@@ -17,7 +17,7 @@
 </style>
 
 <div id="login-div">
-    @using (Html.BeginForm("SignUp", "SignUp", FormMethod.Get))
+    @using (Html.BeginForm("Create", "SignUp", FormMethod.Get))
     {
     <table>
         <tr>
@@ -31,7 +31,7 @@
                 @Html.LabelFor(model => model.UserName)
             </td>
             <td>
-                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", required = "required" } })
             </td>
         </tr>
         <tr>
@@ -39,7 +39,7 @@
                 @Html.LabelFor(model => model.phone)
             </td>
             <td>
-                @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control", type = "phone", required = "required" } })
             </td>
         </tr>
         <tr>
@@ -47,7 +47,7 @@
                 @Html.LabelFor(model => model.Email)
             </td>
             <td>
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", type = "email", required = "required" } })
             </td>
         </tr>
         <tr>
@@ -55,7 +55,7 @@
                 @Html.LabelFor(model => model.Password)
             </td>
             <td>
-                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", type = "password", required = "required" } })
             </td>
         </tr>
         <tr>
@@ -63,7 +63,7 @@
                 @Html.LabelFor(model => model.ConfirmPassword)
             </td>
             <td>
-                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", type = "passwoard", required = "required" } })
             </td>
         </tr>
         <tr>
@@ -71,8 +71,14 @@
                 @Html.LabelFor(model => model.Credentials)
             </td>
             <td>
-               Customer @Html.RadioButton("Credentials","Customer")
-                Consumer @Html.RadioButton("credentials","Consumer")
+                Customer @Html.RadioButton("Credentials", "Customer")
+                Consumer @Html.RadioButton("credentials", "Consumer")
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" name="SingUp" value="SingUp" class="btn btn-success" />
             </td>
         </tr>
     </table>
