@@ -7,48 +7,77 @@
 
 <title>login</title>
 <style>
-    #login-div{
-        position:absolute;
-        left:40%;
-        top:40%;
-        border:3px solid #ccc;
+    #login-div {
+        position: absolute;
+        left: 40%;
+        top: 40%;
+        border: 3px solid #ccc;
         padding: 10px;
+    }
+
+    .field-validation-error {
+        color: red;
     }
 </style>
 <div id="login-div">
+<table>
     @using (Html.BeginForm("Login", "Login", FormMethod.Post))
     {
-        <table>
-            <tr>
-                <td>
-                    @Html.LabelFor(m => m.UserName)
-                </td>
-                <td>
-                    @Html.TextBoxFor(m => m.UserName, new { Attribute = new { placeholder = "please enter your user name", type = "text", required = "required" } })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.LabelFor(m => m.Password)
-                </td>
-                <td>
-                    @Html.TextBoxFor(m => m.Password, new { Attribute = new { placeholder = "please enter your Password", type="password", required = "required" } })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    
-                </td>
-                <td>
-                    <input type="submit" name="Login" value="Login" class="btn btn-primary" />
-                </td>
-            </tr>
+        <tr>
+            <td style="text-decoration:underline"> Log In and Choose Your Product
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.UserName)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", id = "emial", Attribute = new { placeholder = "plase enter your password" } })
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                @Html.ValidationMessageFor(m => m.UserName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Password)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Password, new { @class = "form-control", id = "inputPassword", Attribute = new { placeholder = "plase enter your password" } })
 
-        </table>
+
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                @Html.ValidationMessageFor(m => m.Password)
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td> <input type="submit" name="Login" value="Login" class="btn btn-primary float-right" /> </td>
+        </tr>
     }
     @using (Html.BeginForm("Index", "SignUp", FormMethod.Post))
     {
-        <input type="submit" name="SingUp" value="SingUp" class="btn btn-success" />
+
+        <tr>
+            <td><p>Do Not Have Account</p></td>
+            <td> <input type="submit" name="SignUp" value="SignUp" class="btn btn-success float-right" /> </td>
+        </tr>
+
+
     }
+</table>
+ 
 </div>
 
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />

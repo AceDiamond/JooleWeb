@@ -14,6 +14,7 @@ namespace JooleWeb.Controllers
         {
             return View();
         }
+        [HttpPost]
         public ActionResult Login(string UserName, string Password)
         {
             if(UserName == null || Password == null)

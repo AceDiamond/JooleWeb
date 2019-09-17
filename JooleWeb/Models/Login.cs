@@ -10,8 +10,10 @@ namespace JooleWeb.Models
     public class login
     {   
         [DisplayName("User Name")]
+        [Required(ErrorMessage ="This field is reuqired.")]
         public string UserName { get; set;}
         [DataType(DataType.Password)]
+        [Required(ErrorMessage ="This field is required.")]
         public string Password { get; set;}
     }
 }
