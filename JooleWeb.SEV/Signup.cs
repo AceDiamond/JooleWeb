@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JooleWeb.DAL;
+using JooleWeb.Repo;
 
-namespace JooleWeb.Repo
+
+namespace JooleWeb.SEV
 {
-    class Class1
+    class Signup
     {
     }
 }
