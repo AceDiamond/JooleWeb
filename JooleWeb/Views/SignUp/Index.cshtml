@@ -1,0 +1,87 @@
+﻿@model JooleWeb.Models.SignUp
+
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<title>SignUp</title>
+<style>
+    #login-div {
+        position: absolute;
+        left: 40%;
+        top: 40%;
+        border: 3px solid #000000;
+        padding: 10px;
+    }
+</style>
+
+<div id="login-div">
+    @using (Html.BeginForm("SignUp", "SignUp", FormMethod.Get))
+    {
+    <table>
+        <tr>
+            <td></td>
+            <td style="text-decoration:underline">
+                Sign Up Page
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.UserName)
+            </td>
+            <td>
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.phone)
+            </td>
+            <td>
+                @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control" } })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Email)
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Password)
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.ConfirmPassword)
+            </td>
+            <td>
+                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Credentials)
+            </td>
+            <td>
+               Customer @Html.RadioButton("Credentials","Customer")
+                Consumer @Html.RadioButton("credentials","Consumer")
+            </td>
+        </tr>
+    </table>
+    }
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+﻿@model JooleWeb.Models.login
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<title>login</title>
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.UserName)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.UserName, new { Attribute = new { placeholder = "please enter your user name" } })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Password)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Password, new { Attribute = new { placeholder = "please enter your Password" } })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" name="log-in" value="log-in" />
+            </td>
+            <td>
+                <input type="submit" name="SingUp" value="SingUp" />
+            </td>
+        </tr>
+
+    </table>
+}

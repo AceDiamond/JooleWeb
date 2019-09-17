@@ -18,7 +18,7 @@ namespace JooleWeb.DAL
         public int subCategoryID { get; set; }
         public string DisplayType { get; set; }
         public string VerticalResolution { get; set; }
-        public Nullable<byte> ScreenSize { get; set; }
+        public Nullable<decimal> ScreenSize { get; set; }
     
         public virtual Product Product { get; set; }
         public virtual SubCategory SubCategory { get; set; }
