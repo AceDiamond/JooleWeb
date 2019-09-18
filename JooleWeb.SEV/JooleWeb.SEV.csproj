@@ -77,6 +77,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SearchService.cs" />
     <Compile Include="login.cs" />
     <Compile Include="ProductSummary.cs" />
     <Compile Include="Service.cs" />

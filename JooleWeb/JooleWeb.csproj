@@ -130,14 +130,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CompareController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\loginController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\SummaryController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Controllers\SummaryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategoryAndSubCategory.cs" />
     <Compile Include="Models\login.cs" />
     <Compile Include="Models\SignUp.cs" />
     <Compile Include="Models\Summary.cs" />
@@ -222,7 +225,11 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Background.css" />
+    <Content Include="Content\Navigation bar.css" />
+    <Content Include="Content\Position.css" />
     <Content Include="Content\search.css" />
+    <Content Include="Content\select2.min.css" />
+    <Content Include="Content\Table.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -235,6 +242,7 @@
     <Content Include="obj\Debug\TempPE\Models.Model1.Context.cs.dll" />
     <Content Include="obj\Debug\TempPE\Models.Model1.cs.dll" />
     <Content Include="obj\Debug\TempPE\Models.Model1.Designer.cs.dll" />
+    <Content Include="Images\Joole.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -286,6 +294,9 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -295,6 +306,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -322,10 +334,12 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\Search\Search.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Summary\Summary.cshtml" />
+    <Content Include="Views\Compare\Compare.cshtml" />
+    <Content Include="Views\Shared\_LayoutSecond.cshtml" />
     <Content Include="Views\SignUp\Index.cshtml" />
+    <Content Include="Views\login\Index.cshtml" />
     <Content Include="Views\Summary\Summary.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -342,6 +356,12 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JooleWeb.SEV\JooleWeb.SEV.csproj">
+      <Project>{f445dd0a-bb27-4967-84b9-4ad204361163}</Project>
+      <Name>JooleWeb.SEV</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JooleWeb.DAL\JooleWeb.DAL.csproj">

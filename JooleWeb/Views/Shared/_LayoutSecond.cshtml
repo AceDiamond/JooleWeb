@@ -8,13 +8,15 @@
 </head>
 @RenderBody()
 <body>
-    <div>
-        <button type="button"
-                Style="position: fixed; top:0; left:0; right:0;width: 120px;height: 30px;"
-                id=" Click Me Back"
-                onclick="@("window.location.href='" + @Url.Action("Index", "Home") + "'");">
-            Click Me Back!
-        </button>
+    <div class="row">
+        <div style="display:inline-block; margin-left: auto;" class="col-5">
+            <form style="color:white;font:bold;">
+                <b>Search for products:</b>
+                <input type="text" name="searchString" />
+                <input class="btn btn-primary" type="submit" value="Search!" />
+            </form>
+        </div>
+        <label class="col-3" style="margin-left: auto">@Session["userName"]</label>
     </div>
     <div>
         <link href="~/Content/Background.css" rel="stylesheet" type="text/css" />
@@ -26,4 +28,3 @@
 @Scripts.Render("~/bundles/select2")
 @RenderSection("scripts", required: false)
 </html>
-
