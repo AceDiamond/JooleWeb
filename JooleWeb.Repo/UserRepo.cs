@@ -10,11 +10,11 @@ namespace JooleWeb.Repo
     }
     internal class UserRepo : Repository<User>, IUSersRepo
     {
-        private DbContext Context;
+        //private DbContext context;
 
         public  UserRepo(DbContext context) : base (context)
         {
-            this.Context = context;
+           // this.context = context;
         }
     }
 }
