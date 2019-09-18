@@ -23,6 +23,7 @@ namespace JooleWeb.Controllers
             productdetails.description = newService.getProductDescription(id);
             productdetails.price = newService.getProductPrice(id);
             productdetails.productSpec = newService.getProductSpec(id);
+            productdetails.productName = newService.getProductName(id);
             return View("ProductDetails",productdetails);
         } 
 

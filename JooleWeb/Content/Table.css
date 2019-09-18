@@ -11,6 +11,7 @@
     .cinereousTable td, .cinereousTable th {
         border: 1px solid #948473;
         padding: 15px;
+        height: 200px;
     }
 
 .cinereousTable tbody td {

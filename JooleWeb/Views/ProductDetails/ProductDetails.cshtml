@@ -36,16 +36,23 @@
     <table class="cinereousTable">
         <thead>
             <tr>
+                <th>Product Image</th>
+                <th>Product Name</th>
                 <th>Description</th>
                 <th>Price</th>
-                <th>Product Specifications</th>
+                <th>@Html.TextBoxFor(model => model.productSpec[0])</th>
+                <th>@Html.TextBoxFor(model => model.productSpec[1])</th>
+                <th>@Html.TextBoxFor(model => model.productSpec[2])</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>@Html.TextBoxFor(model => model.description)</td>
-                <td>@Html.TextBoxFor(model => model.price)</td>
-                <td>@Html.TextBoxFor(model => model.productSpec[0])</td>
+                <td>@Html.TextAreaFor(model => model.productName)</td>
+                <td>@Html.TextAreaFor(model => model.description)</td>
+                <td>@Html.TextAreaFor(model => model.price)</td>
+                <td>@Html.TextAreaFor(model => model.productSpec[3])</td>
+                <td>@Html.TextAreaFor(model => model.productSpec[4])</td>
+                <td>@Html.TextAreaFor(model => model.productSpec[5])</td>
             </tr>
         </tbody>
     </table>

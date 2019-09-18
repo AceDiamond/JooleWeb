@@ -32,6 +32,16 @@ namespace JooleWeb.SEV
                 return "N/A";
             }
             return uow.product.GetByID(id).Description.ToString();
+
+        }
+
+        public string getProductName(int id)
+        {
+            if (uow.product.GetByID(id).ProductsName == null)
+            {
+                return "N/A";
+            }
+            return uow.product.GetByID(id).ProductsName;
         }
 
         public List<String> getProductSpec(int id)
@@ -45,6 +55,9 @@ namespace JooleWeb.SEV
                 String displayType = uow.tv.GetByID(idForSub).DisplayType;
                 String vertialRes = uow.tv.GetByID(idForSub).VerticalResolution;
                 String screenSize = uow.tv.GetByID(idForSub).ScreenSize.ToString();
+                listOfSub.Add("DisPlay Type");
+                listOfSub.Add("Vertical Resolution");
+                listOfSub.Add("Screen Size");
                 listOfSub.Add(displayType);
                 listOfSub.Add(vertialRes);
                 listOfSub.Add(screenSize);
@@ -57,6 +70,9 @@ namespace JooleWeb.SEV
                 String videoRes = uow.theater.GetByID(idForSub).MaximumVideoResolution;
                 String surroundSd = uow.theater.GetByID(idForSub).SurroundSound.ToString();
                 String numberChannels = uow.theater.GetByID(idForSub).NumberofChannels.ToString();
+                listOfSub.Add("Maximum Video Resolution");
+                listOfSub.Add("Surround Sound");
+                listOfSub.Add("Number of Channels");
                 listOfSub.Add(videoRes);
                 listOfSub.Add(surroundSd);
                 listOfSub.Add(numberChannels);
@@ -69,6 +85,9 @@ namespace JooleWeb.SEV
                 String height = uow.chair.GetByID(idForSub).ProductHeight.ToString();
                 String width = uow.chair.GetByID(idForSub).ProductWidth.ToString();
                 String material = uow.chair.GetByID(idForSub).FrameMaterial;
+                listOfSub.Add("Product Height");
+                listOfSub.Add("Product Width");
+                listOfSub.Add("Frame Material");
                 listOfSub.Add(height);
                 listOfSub.Add(width);
                 listOfSub.Add(material);
@@ -81,6 +100,9 @@ namespace JooleWeb.SEV
                 String height = uow.table.GetByID(idForSub).ProductHeight.ToString();
                 String length = uow.table.GetByID(idForSub).ProductLength.ToString();
                 String style = uow.table.GetByID(idForSub).MountStyle;
+                listOfSub.Add("Product Height");
+                listOfSub.Add("Product Length");
+                listOfSub.Add("Mount Style");
                 listOfSub.Add(height);
                 listOfSub.Add(length);
                 listOfSub.Add(style);
