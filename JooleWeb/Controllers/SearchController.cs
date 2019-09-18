@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 
 namespace JooleWeb.Controllers
 {
+    [MyAuthorize]
     public class SearchController : Controller
     {
         // GET: Search

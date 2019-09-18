@@ -8,6 +8,7 @@ using JooleWeb.Models;
 
 namespace JooleWeb.Controllers
 {
+    [MyAuthorize]
     public class ProductDetailsController : Controller
     {
         // GET: ProductDetails

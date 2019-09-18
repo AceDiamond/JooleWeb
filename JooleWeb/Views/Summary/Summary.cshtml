@@ -5,12 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Summary</h2>
-
 
 
 <style>
-    html { overflow: auto; }
+    html {
+        overflow: auto;
+    }
 
     #Summary-div {
         position: absolute;
@@ -27,7 +27,6 @@
 
     th {
         background-color: green
-
     }
 
     #Filter {
@@ -35,7 +34,7 @@
         left: auto;
         top: 50%;
         border: 5px solid #f00;
-        padding: 10px; 
+        padding: 10px;
         width: 200px;
     }
 
@@ -47,8 +46,31 @@
 
     #img {
         width: 100%;
-            }
+    }
 </style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<br />
+<br />
+<br />
+<br />
+
+<div class="topnav">
+    <a class="active" href="@Url.Action("Index", "Search")">Home</a>
+    <a href="@Url.Action("Index", "ProductDetails")">Product Details</a>
+    <a href="@Url.Action("Summary", "Summary")">Product Summary</a>
+    <div class="search-container">
+        <form action="/action_page.php">
+            <input type="text" placeholder="Search Product.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
 
 
 <div id="Summary-div">
@@ -66,17 +88,18 @@
         {
 
             <tr>
-                <td> @Html.ActionLink(item.productName,
-                        "showDetails",
-                        "ProductDetails",
-                        new { id = item.productID },
-                        null)
+                <td>
+                    @Html.ActionLink(item.productName,
+                       "showDetails",
+                       "ProductDetails",
+                       new { id = item.productID },
+                       null)
                 </td>
-                <td> <img src="@item.image" width="128" height="128" id="img" > </td>
+                <td> <img src="@item.image" width="128" height="128" id="img"> </td>
                 <td> @item.Category</td>
                 <td> @item.subcat</td>
                 <td> @item.price</td>
-                <td id = "desc">  @item.desc</td>
+                <td id="desc">  @item.desc</td>
             </tr>
         }
 
@@ -102,3 +125,5 @@
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
 <script src="~/Scripts/bootstrap.min.js"></script>
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<link href="~/Content/Navigation bar.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

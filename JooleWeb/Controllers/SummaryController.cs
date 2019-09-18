@@ -9,6 +9,7 @@ using JooleWeb.DAL;
 
 namespace JooleWeb.Controllers
 {
+    [MyAuthorize]
     public class SummaryController : Controller
     {
         JooleWeb.SEV.Service ProductSummary = new JooleWeb.SEV.Service();

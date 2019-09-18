@@ -130,6 +130,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AuthurizeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\loginController.cs" />
     <Compile Include="Controllers\ProductDetailsController.cs" />
@@ -336,7 +337,6 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Summary\Summary.cshtml" />
-    <Content Include="Views\Shared\_LayoutSecond.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\ProductDetails\ProductDetails.cshtml" />
@@ -344,6 +344,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Authurize\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

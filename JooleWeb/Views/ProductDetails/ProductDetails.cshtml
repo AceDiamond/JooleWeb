@@ -5,19 +5,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+<style>
+
+    html { overflow: auto; }
+</style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <br />
 <br />
 <br />
 <br />
-<br />
-<br />
-<br />
+
 <div class="topnav">
     <a class="active" href="@Url.Action("Index", "Search")">Home</a>
     <a href="@Url.Action("Index", "ProductDetails")">Product Details</a>
-    <a href="@Url.Action("ProductSummary", "Home")">Product Summary</a>
-    <a href="@Url.Action("Contact", "Home")">About</a>
+    <a href="@Url.Action("Summary", "Summary")">Product Summary</a>
     <div class="search-container">
         <form action="/action_page.php">
             <input type="text" placeholder="Search Product.." name="search">
