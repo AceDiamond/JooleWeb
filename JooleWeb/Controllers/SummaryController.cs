@@ -97,7 +97,7 @@ namespace JooleWeb.Controllers
                         productItem.subcat = "Chair";
                         break;
                 }
-
+                productItem.productID = item.ProductID;
                 productItem.image = item.ProductImage;
                 productItem.price = item.Price.ToString();
                 productItem.desc = item.Description;

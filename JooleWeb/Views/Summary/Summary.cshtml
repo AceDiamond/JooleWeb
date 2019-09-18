@@ -66,7 +66,12 @@
         {
 
             <tr>
-                <td> @item.productName</td>
+                <td> @Html.ActionLink(item.productName,
+                        "showDetails",
+                        "ProductDetails",
+                        new { id = item.productID },
+                        null)
+                </td>
                 <td> <img src="@item.image" width="128" height="128" id="img" > </td>
                 <td> @item.Category</td>
                 <td> @item.subcat</td>

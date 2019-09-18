@@ -7,6 +7,7 @@ namespace JooleWeb.Models
 {
     public class Summary
     {
+        public int productID { get; set; }
         public string productName { get; set; }
         public string Category { get; set; }
         public string subcat { get; set; }
