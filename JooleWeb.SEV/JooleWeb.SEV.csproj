@@ -80,6 +80,7 @@
     <Compile Include="SearchService.cs" />
     <Compile Include="login.cs" />
     <Compile Include="ProductSummary.cs" />
+    <Compile Include="ProductDetails.cs" />
     <Compile Include="Service.cs" />
     <Compile Include="Signup.cs" />
   </ItemGroup>

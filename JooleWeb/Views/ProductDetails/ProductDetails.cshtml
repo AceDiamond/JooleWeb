@@ -1,0 +1,67 @@
+﻿@model JooleWeb.Models.ProductDetails
+
+@{
+    ViewBag.Title = "ProductDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="topnav">
+    <a class="active" href="@Url.Action("Index", "Search")">Home</a>
+    <a href="@Url.Action("Index", "ProductDetails")">Product Details</a>
+    <a href="@Url.Action("ProductSummary", "Home")">Product Summary</a>
+    <a href="@Url.Action("Contact", "Home")">About</a>
+    <div class="search-container">
+        <form action="/action_page.php">
+            <input type="text" placeholder="Search Product.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<h2 class="pos_left">ProductDetails</h2>
+<br />
+<div>
+    <table class="cinereousTable">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>@Html.TextBoxFor(model => model.productSpec[0])</th>
+                <th>@Html.TextBoxFor(model => model.productSpec[1])</th>
+                <th>@Html.TextBoxFor(model => model.productSpec[2])</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Html.TextAreaFor(model => model.productName)</td>
+                <td>@Html.TextAreaFor(model => model.description)</td>
+                <td>@Html.TextAreaFor(model => model.price)</td>
+                <td>@Html.TextAreaFor(model => model.productSpec[3])</td>
+                <td>@Html.TextAreaFor(model => model.productSpec[4])</td>
+                <td>@Html.TextAreaFor(model => model.productSpec[5])</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br />
+<br />
+<br />
+
+<link href="~/Content/Position.css" rel="stylesheet" id="bootstrap-css">
+<link href="~/Content/Table.css" rel="stylesheet" id="bootstrap-css">
+<link href="~/Content/Navigation bar.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
