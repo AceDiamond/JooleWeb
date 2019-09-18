@@ -34,7 +34,7 @@ namespace JooleWeb
                  defaults: new { controller = "ProductDetails", action = "Index", id = UrlParameter.Optional }
              );
             routes.MapRoute(name: "Home", url: "Home/Login", 
-              defaults: new { controller = "Login", action = "Login", id = UrlParameter.Optional });
+              defaults: new { controller = "login", action = "index", id = UrlParameter.Optional });
 
             routes.MapRoute(
                 name: "Default",

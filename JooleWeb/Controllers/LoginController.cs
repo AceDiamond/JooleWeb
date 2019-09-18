@@ -7,13 +7,15 @@ using JooleWeb.SEV;
 
 namespace JooleWeb.Controllers
 {
-    public class LoginController : Controller
+    public class loginController : Controller
     {
         // GET: Login
         public ActionResult Index()
         {
             return View();
         }
+
+        [HttpPost]
         public ActionResult Login(string UserName, string Password)
         {
             if(UserName == null || Password == null)
@@ -26,7 +28,8 @@ namespace JooleWeb.Controllers
                 bool Authirize = LoginService.login(UserName, Password);
                 if(Authirize == true)
                 {
-                    return RedirectToAction("Search", "Search");
+                    Session["userName"] = UserName;
+                    return RedirectToAction("Index", "Search");
                 }
                 else
                 {

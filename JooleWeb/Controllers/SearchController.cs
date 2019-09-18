@@ -17,7 +17,7 @@ namespace JooleWeb.Controllers
         {
             List<Category_M> listObj = new List<Category_M>();
 
-            foreach (var tempCatego in new Service(new DAL.Joole_RBBTEntities()).GetCategories())
+            foreach (var tempCatego in new Service().GetCategories())
             {
 
                 Category_M tempObj = new Category_M();
@@ -36,7 +36,7 @@ namespace JooleWeb.Controllers
 
                 int val = (int)value;
 
-                foreach (var temp in new Service(new DAL.Joole_RBBTEntities()).GetSubCategories(val))
+                foreach (var temp in new Service().GetSubCategories(val))
                 {
                     SubCategory_M tempSubCategory = new SubCategory_M();
                     tempSubCategory.SubCategory_Name = temp.subCategoryName;
@@ -50,7 +50,7 @@ namespace JooleWeb.Controllers
 
                 List<SubCategory_M> subCategoList = new List<SubCategory_M>();
 
-                foreach (var temp in new Service(new DAL.Joole_RBBTEntities()).GetAllSub())
+                foreach (var temp in new Service().GetAllSub())
                 {
                     SubCategory_M tempSubCategory = new SubCategory_M();
                     tempSubCategory.SubCategory_Name = temp.subCategoryName;
@@ -67,15 +67,15 @@ namespace JooleWeb.Controllers
         [HttpPost]
         public ActionResult Index(string subCategory, string Category)
         {
-            if (string.IsNullOrEmpty(subCategory))
+            /*if (string.IsNullOrEmpty(subCategory))
             {
-                return RedirectToAction("Summary", "Product", new { searchString = subCategory });
+                return RedirectToAction("Summary", "Product", new { subCate = subCategory, cate = Category });
 
             }
             else
-            {
-                return RedirectToAction("Summary", "Product", new { searchString = subCategory });
-            }
+            {*/
+                return RedirectToAction("Summary", "Product", new { subCate = subCategory, cate = Category });
+            //}
         }
     }
 }
