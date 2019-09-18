@@ -7,27 +7,47 @@
 
 <h2>Summary</h2>
 
+
+
 <style>
+    html { overflow: auto; }
+
     #Summary-div {
         position: absolute;
-        left: 40%;
+        left: 20%;
         top: 40%;
         border: 3px solid #ccc;
         padding: 10px;
+        overflow: auto
     }
 
     table, th, td {
-  border: 1px solid black;
-}
-    #Filter {
-        position:absolute;
-        left: 10%;
-        top: 40%;
-        border: 5px solid #f00;
-        padding: 10px;
+        border: 1px solid black;
+    }
+
+    th {
+        background-color: green
 
     }
 
+    #Filter {
+        position: relative;
+        left: auto;
+        top: 50%;
+        border: 5px solid #f00;
+        padding: 10px; 
+        width: 200px;
+    }
+
+    #desc {
+        height: 50%;
+        width: 50%;
+        overflow: auto;
+    }
+
+    #img {
+        width: 100%;
+            }
 </style>
 
 
@@ -47,11 +67,11 @@
 
             <tr>
                 <td> @item.productName</td>
-                <td> @item.image</td>
+                <td> <img src="@item.image" width="128" height="128" id="img" > </td>
                 <td> @item.Category</td>
                 <td> @item.subcat</td>
                 <td> @item.price</td>
-                <td> @item.desc</td>
+                <td id = "desc">  @item.desc</td>
             </tr>
         }
 
