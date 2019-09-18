@@ -6,31 +6,34 @@ using System.Threading.Tasks;
 using JooleWeb.DAL;
 using JooleWeb.Repo;
 
+
 namespace JooleWeb.SEV
 {
    public partial class Service
     {
-        public bool login(string UserName, string Password)
+        public int login(string UserName, string Password)
         {
-            bool UserLogIn;
-            UserLogIn = false;
+            int UserLogIn;
+            UserLogIn = 0;
             foreach(User UserData in uow.user.GetAll().ToList())
             {
                 if(UserName == UserData.UserName)
                 {
                    if(Password == UserData.Password)
                     {
-                        UserLogIn = true;
+                        UserLogIn = 1;
                         break;
                     }
                     else
                     {
-                        UserLogIn = false;
+                        Console.WriteLine("Your user name does not exist");
+                        UserLogIn = 2;
                     }
                 }
                 else
                 {
-                    UserLogIn = false;
+                    Console.WriteLine("Your user name does not exist");
+                    UserLogIn = 3;
                 }
             }
             

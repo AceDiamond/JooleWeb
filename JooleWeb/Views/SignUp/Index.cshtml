@@ -17,7 +17,7 @@
 </style>
 
 <div id="login-div">
-    @using (Html.BeginForm("Create", "SignUp", FormMethod.Get))
+    @using (Html.BeginForm("Create", "SignUp", FormMethod.Post))
     {
     <table>
         <tr>
@@ -63,7 +63,7 @@
                 @Html.LabelFor(model => model.ConfirmPassword)
             </td>
             <td>
-                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", type = "passwoard", required = "required" } })
+                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", type = "password", required = "required" } })
             </td>
         </tr>
         <tr>
@@ -74,6 +74,10 @@
                 Customer @Html.RadioButton("Credentials", "Customer")
                 Consumer @Html.RadioButton("credentials", "Consumer")
             </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td> @Html.ValidationMessageFor(model => model.Credentials)</td>
         </tr>
         <tr>
             <td></td>

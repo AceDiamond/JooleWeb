@@ -11,10 +11,10 @@ namespace JooleWeb.SEV
 {
     public partial class Service
     {
-        public bool SignUp(string UserName, string phone, string Email, string Password, string Credentials)
+        public int SignUp(string UserName, string phone, string Email, string Password, string Credentials)
         {
-            bool Regiester;
-            Regiester = false;
+            int Regiester;
+            Regiester = 0;
             User inputUser = new User();
             inputUser.UserName = UserName;
             inputUser.Password = Password;
@@ -22,16 +22,17 @@ namespace JooleWeb.SEV
             {
                 if (UserName == userData.UserName)
                 {
-                    Regiester = false; //content("The user name has already exist");
+                    Console.WriteLine("This user name has already exist");
+                    Regiester = 1; //content("The user name has already exist");
                     break;
                 }
                 else
                 {
-                     Regiester = true;
+                     Regiester = 2;
                 }
             }
 
-            if (Regiester == true)
+            if (Regiester == 2)
             {
                 if (Credentials == "Customer")
                 {
@@ -39,7 +40,8 @@ namespace JooleWeb.SEV
                     {
                         if (phone == customerData.phone || Email == customerData.Email)
                         {
-                            Regiester = false;
+                            Console.WriteLine("the phone number or email has been used");
+                            Regiester = 3;
                             break;
                         }
                         else
@@ -53,7 +55,7 @@ namespace JooleWeb.SEV
                             inputCustomer.phone = phone;
                             uow.customer.Add(inputCustomer);
                             uow.SaveChanges();
-                            Regiester = true;
+                            Regiester = 2;
                             break;
                         }
                     }
@@ -64,7 +66,8 @@ namespace JooleWeb.SEV
                     {
                         if (phone == ConsumerData.phone || Email == ConsumerData.Email)
                         {
-                            Regiester = false;
+                            Console.WriteLine("the phone number or email has been used");
+                            Regiester = 3;
                             break;
                         }
                         else
@@ -79,7 +82,7 @@ namespace JooleWeb.SEV
                             inputConsumer.phone = phone;
                             uow.consumer.Add(inputConsumer);
                             uow.SaveChanges();
-                            Regiester = true;
+                            Regiester = 2;
                             break;
                         }
 
@@ -87,7 +90,8 @@ namespace JooleWeb.SEV
                 }
                 else
                 {
-                    Regiester = false;
+                    Console.WriteLine("please choose your Credentials");
+                    Regiester = 4;
                 }
 
              }

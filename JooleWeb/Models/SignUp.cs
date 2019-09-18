@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -11,6 +12,7 @@ namespace JooleWeb.Models
         public string Password { get; set;}
         public string ConfirmPassword { get; set;}
         public string Avatan { get; set;}
+        [Required(ErrorMessage = "This field is required.")]
         public string Credentials { get; set; }
         public string Email { get; set; }
         public string phone { get; set; }

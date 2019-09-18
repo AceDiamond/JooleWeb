@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Windows;
 using JooleWeb.SEV;
 
 namespace JooleWeb.Controllers
@@ -24,16 +25,27 @@ namespace JooleWeb.Controllers
             else
             {
                 JooleWeb.SEV.Service LoginService = new JooleWeb.SEV.Service();
-                bool Authirize = LoginService.login(UserName, Password);
-                if(Authirize == true)
+                int Authirize = LoginService.login(UserName, Password);
+                if(Authirize == 1)
                 {
                     return RedirectToAction("Search", "Search");
+                }
+                else if(Authirize ==2)
+                {
+                    string message = "Your password is not correct.";
+                    MessageBox.Show(message);
+                    return View("index");
+                }
+                else if(Authirize == 3)
+                {
+                    string message = "Your user name is not correct.";
+                    MessageBox.Show(message);
+                    return View("index");
                 }
                 else
                 {
                     return View("index");
                 }
-
             }
             
 
