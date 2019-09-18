@@ -14,7 +14,7 @@ namespace JooleWeb.Models
     }
     public class SubCategory_M
     {
-        public List<string> SubCategory_ID { get; set; }
-        public List<string> SubCategory_Name { get; set; }
+        public int SubCategory_ID { get; set; }
+        public string SubCategory_Name { get; set; }
     }
 }

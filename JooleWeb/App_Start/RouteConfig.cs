@@ -14,13 +14,8 @@ namespace JooleWeb
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                 name: "Search1",
+                 name: "Search",
                  url: "Search",
-                 defaults: new { controller = "Search", action = "Index", id = UrlParameter.Optional }
-             );
-            routes.MapRoute(
-                 name: "Search2",
-                 url: "Search/Search",
                  defaults: new { controller = "Search", action = "Index", id = UrlParameter.Optional }
              );
             routes.MapRoute(
