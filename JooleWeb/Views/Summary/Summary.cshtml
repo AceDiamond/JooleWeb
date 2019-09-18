@@ -1,0 +1,129 @@
+﻿@model List<JooleWeb.Models.Summary>
+
+@{
+    ViewBag.Title = "Summary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<style>
+    html {
+        overflow: auto;
+    }
+
+    #Summary-div {
+        position: absolute;
+        left: 20%;
+        top: 40%;
+        border: 3px solid #ccc;
+        padding: 10px;
+        overflow: auto
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    th {
+        background-color: green
+    }
+
+    #Filter {
+        position: relative;
+        left: auto;
+        top: 50%;
+        border: 5px solid #f00;
+        padding: 10px;
+        width: 200px;
+    }
+
+    #desc {
+        height: 50%;
+        width: 50%;
+        overflow: auto;
+    }
+
+    #img {
+        width: 100%;
+    }
+</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<br />
+<br />
+<br />
+<br />
+
+<div class="topnav">
+    <a class="active" href="@Url.Action("Index", "Search")">Home</a>
+    <a href="@Url.Action("Index", "ProductDetails")">Product Details</a>
+    <a href="@Url.Action("Summary", "Summary")">Product Summary</a>
+    <div class="search-container">
+        <form action="/action_page.php">
+            <input type="text" placeholder="Search Product.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+<div id="Summary-div">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Category</th>
+            <th>Type</th>
+            <th>Price</th>
+            <th>Description</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.ActionLink(item.productName,
+                       "showDetails",
+                       "ProductDetails",
+                       new { id = item.productID },
+                       null)
+                </td>
+                <td> <img src="@item.image" width="128" height="128" id="img"> </td>
+                <td> @item.Category</td>
+                <td> @item.subcat</td>
+                <td> @item.price</td>
+                <td id="desc">  @item.desc</td>
+            </tr>
+        }
+
+    </table>
+
+</div>
+
+
+
+<div id="Filter">
+    <div class="slidecontainer">
+        <p><span style='font-size:20px;'>&#8645;</span> &nbsp;&nbsp;Parameter 1:</p>
+        <input type="range" min="1" max="100" value="50"><br>
+        <p><span style='font-size:20px;'>&#8645;</span> &nbsp;&nbsp;Max Power (W):</p>
+        <input type="range" min="1" max="100" value="50"><br>
+        <p><span style='font-size:20px;'>&#8645;</span> &nbsp;Sound at max speed (dBA):</p>
+        <input type="range" min="1" max="100" value="50"><br>
+    </div>
+
+</div>
+
+<link href="~/Content/search.css" rel="stylesheet" id="bootstrap-css">
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<link href="~/Content/Navigation bar.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

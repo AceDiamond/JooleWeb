@@ -10,17 +10,7 @@ namespace JooleWeb
 {
     public class MvcApplication : System.Web.HttpApplication
     {
-        public static void RegisterRoutes(RouteCollection routes)
-        {
-            routes.MapRoute("Home", "Home/Login", "Login",
-                new { Controller = "Home", Action = "Login" });
-            routes.MapRoute("default", "{controller}/{Action}",
-                 new { Controller = "Home", Action = "Login" });
-
-
-        }
-
-
+      
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();

@@ -3,87 +3,112 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using JooleWeb.Models;
+using JooleWeb.SEV;
+using JooleWeb.DAL;
 
 namespace JooleWeb.Controllers
 {
+    [MyAuthorize]
     public class SummaryController : Controller
     {
+        JooleWeb.SEV.Service ProductSummary = new JooleWeb.SEV.Service();
+        List<Product> products;
         // GET: Summary
-        public ActionResult Index()
+        public ActionResult Summary(string cat, string catSub)
         {
-            return View();
-        }
 
-        // GET: Summary/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
 
-        // GET: Summary/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Summary/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
+            switch (cat)
             {
-                // TODO: Add insert logic here
+                case "1":
+                    switch(catSub)
+                    {
+                        case "1":
+                            products = ProductSummary.TVSummary();
+                            break;
+                        case "2":
+                            products = ProductSummary.HomeSummary();
+                            break;
+                        default:
+                            products = ProductSummary.ElecSummary();
+                            break;
+                    }           
+                    break;
+                case "2":
+                    switch (catSub)
+                    {
+                        case "3":
+                            products = ProductSummary.ChairSummary();
+                            break;
+                        case "4":
+                            products = ProductSummary.TableSummary();
+                            break;
+                        default:
+                            products = ProductSummary.FurnSummary();
+                            break;
+                    }
+                    break;
 
-                return RedirectToAction("Index");
+                default:
+                    products = ProductSummary.AllSummary();
+                    break;
+
             }
-            catch
+
+
+           
+           
+            var productList = new List<Summary>();
+
+
+            foreach (var item in products)
             {
-                return View();
+                var productItem = new Summary();
+                productItem.productName = item.ProductsName;
+
+                switch ((item.CategoryID))
+                {
+                    case 1:
+                        productItem.Category = "Electronics";
+                        break;
+                    case 2:
+                        productItem.Category = "Furniture";
+                        break;
+
+                    default:
+                        productItem.Category = "Electronics";
+                        break;
+                }
+
+
+                switch ((item.SubcategoryID))
+                {
+                    case 1:
+                        productItem.subcat = "TV";
+                        break;
+
+                    case 2:
+                        productItem.subcat = "Home Theater";
+                        break;
+                    case 3:
+                        productItem.subcat = "Table";
+                        break;
+                    case 4:
+                        productItem.subcat = "Chair";
+                        break;
+                }
+                productItem.productID = item.ProductID;
+                productItem.image = item.ProductImage;
+                productItem.price = item.Price.ToString();
+                productItem.desc = item.Description;
+                productList.Add(productItem);
+
             }
-        }
 
-        // GET: Summary/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
 
-        // POST: Summary/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Summary/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Summary/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return View(productList);
         }
     }
 }

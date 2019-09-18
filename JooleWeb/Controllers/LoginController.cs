@@ -8,7 +8,7 @@ using JooleWeb.SEV;
 
 namespace JooleWeb.Controllers
 {
-    public class LoginController : Controller
+    public class loginController : Controller
     {
         // GET: Login
         public ActionResult Index()
@@ -28,7 +28,8 @@ namespace JooleWeb.Controllers
                 int Authirize = LoginService.login(UserName, Password);
                 if(Authirize == 1)
                 {
-                    return RedirectToAction("Search", "Search");
+                    Session["userName"] = UserName;
+                    return RedirectToAction("Index", "Search");
                 }
                 else if(Authirize ==2)
                 {

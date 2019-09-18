@@ -1,0 +1,126 @@
+﻿.cinereousTable {
+    background-color: #FFFFFF;
+    width: 100%;
+    text-align: center;
+    max-width: 800px;
+    position: relative;
+    top: 50px;
+    left: 90px;
+}
+
+    .cinereousTable td, .cinereousTable th {
+        border: 1px solid #948473;
+        padding: 15px;
+        height: 200px;
+    }
+
+.cinereousTable tbody td {
+        font-size: 13px;
+    }
+
+.cinereousTable thead {
+        background: #68CB75;
+        background: -moz-linear-gradient(top, #8ed897 0%, #77d082 66%, #68CB75 100%);
+        background: -webkit-linear-gradient(top, #8ed897 0%, #77d082 66%, #68CB75 100%);
+        background: linear-gradient(to bottom, #8ed897 0%, #77d082 66%, #68CB75 100%);
+    }
+
+.cinereousTable thead th {
+            font-size: 17px;
+            font-weight: bold;
+            color: #000000;
+            text-align: left;
+            border-left: 2px solid #948473;
+        }
+
+            .cinereousTable thead th:first-child {
+                border-left: none;
+            }
+
+.cinereousTable tfoot td {
+        font-size: 16px;
+    }
+
+.cinereousTable2 {
+    background-color: #FFFFFF;
+    width: 100%;
+    text-align: left;
+    max-width: 400px;
+    position: fixed;
+    top: 500px;
+    left: 100px;
+}
+
+    .cinereousTable2 td, .cinereousTable2 th {
+        border: 1px solid #948473;
+        padding: 15px;
+    }
+
+    .cinereousTable2 tbody td {
+        font-size: 13px;
+    }
+
+    .cinereousTable2 thead {
+        background: #68CB75;
+        background: -moz-linear-gradient(top, #8ed897 0%, #77d082 66%, #68CB75 100%);
+        background: -webkit-linear-gradient(top, #8ed897 0%, #77d082 66%, #68CB75 100%);
+        background: linear-gradient(to bottom, #8ed897 0%, #77d082 66%, #68CB75 100%);
+    }
+
+        .cinereousTable2 thead th {
+            font-size: 17px;
+            font-weight: bold;
+            color: #000000;
+            text-align: left;
+            border-left: 2px solid #948473;
+        }
+
+            .cinereousTabl2e thead th:first-child {
+                border-left: none;
+            }
+
+    .cinereousTable2 tfoot td {
+        font-size: 16px;
+    }
+
+.cinereousTable3 {
+    background-color: #FFFFFF;
+    width: 100%;
+    text-align: left;
+    max-width: 400px;
+    position: fixed;
+    top: 670px;
+    left: 100px;
+}
+
+    .cinereousTable3 td, .cinereousTable3 th {
+        border: 1px solid #948473;
+        padding: 15px;
+    }
+
+    .cinereousTable3 tbody td {
+        font-size: 13px;
+    }
+
+    .cinereousTable3 thead {
+        background: #68CB75;
+        background: -moz-linear-gradient(top, #8ed897 0%, #77d082 66%, #68CB75 100%);
+        background: -webkit-linear-gradient(top, #8ed897 0%, #77d082 66%, #68CB75 100%);
+        background: linear-gradient(to bottom, #8ed897 0%, #77d082 66%, #68CB75 100%);
+    }
+
+        .cinereousTable3 thead th {
+            font-size: 17px;
+            font-weight: bold;
+            color: #000000;
+            text-align: left;
+            border-left: 2px solid #948473;
+        }
+
+.cinereousTable3 thead th:first-child {
+    border-left: none;
+}
+
+.cinereousTable3 tfoot td {
+    font-size: 16px;
+}
