@@ -12,12 +12,9 @@
           <Property Name="CategoryID" Type="int" Nullable="false" />
           <Property Name="CategoryName" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Joole_RBBT.dbo.Chair' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Chair">
           <Key>
             <PropertyRef Name="ProductID" />
-            <PropertyRef Name="subCategoryID" />
           </Key>
           <Property Name="ProductID" Type="int" Nullable="false" />
           <Property Name="subCategoryID" Type="int" Nullable="false" />
@@ -49,12 +46,9 @@ warning 6002: The table/view 'Joole_RBBT.dbo.Chair' does not have a primary key 
           <Property Name="phone" Type="varchar" MaxLength="20" />
           <Property Name="UserID" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Joole_RBBT.dbo.HomeTheater' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="HomeTheater">
           <Key>
             <PropertyRef Name="ProductID" />
-            <PropertyRef Name="subCategoryID" />
           </Key>
           <Property Name="ProductID" Type="int" Nullable="false" />
           <Property Name="subCategoryID" Type="int" Nullable="false" />
@@ -114,12 +108,9 @@ warning 6002: The table/view 'Joole_RBBT.dbo.OrderDetails' does not have a prima
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Joole_RBBT.dbo.Table' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Table">
           <Key>
             <PropertyRef Name="ProductID" />
-            <PropertyRef Name="subCategoryID" />
           </Key>
           <Property Name="ProductID" Type="int" Nullable="false" />
           <Property Name="subCategoryID" Type="int" Nullable="false" />
@@ -127,12 +118,9 @@ warning 6002: The table/view 'Joole_RBBT.dbo.Table' does not have a primary key 
           <Property Name="ProductLength" Type="decimal" Precision="18" Scale="0" />
           <Property Name="MountStyle" Type="text" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TV">
           <Key>
             <PropertyRef Name="ProductID" />
-            <PropertyRef Name="subCategoryID" />
           </Key>
           <Property Name="ProductID" Type="int" Nullable="false" />
           <Property Name="subCategoryID" Type="int" Nullable="false" />
@@ -212,7 +200,7 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
         </Association>
         <Association Name="ProductsChair_FK">
           <End Role="Products" Type="Self.Products" Multiplicity="1" />
-          <End Role="Chair" Type="Self.Chair" Multiplicity="*" />
+          <End Role="Chair" Type="Self.Chair" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Products">
               <PropertyRef Name="ProductID" />
@@ -236,7 +224,7 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
         </Association>
         <Association Name="ProductsHomeTheater_FK">
           <End Role="Products" Type="Self.Products" Multiplicity="1" />
-          <End Role="HomeTheater" Type="Self.HomeTheater" Multiplicity="*" />
+          <End Role="HomeTheater" Type="Self.HomeTheater" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Products">
               <PropertyRef Name="ProductID" />
@@ -260,7 +248,7 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
         </Association>
         <Association Name="ProductsTable_FK">
           <End Role="Products" Type="Self.Products" Multiplicity="1" />
-          <End Role="Table" Type="Self.Table" Multiplicity="*" />
+          <End Role="Table" Type="Self.Table" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Products">
               <PropertyRef Name="ProductID" />
@@ -272,7 +260,7 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
         </Association>
         <Association Name="ProductsTV_FK">
           <End Role="Products" Type="Self.Products" Multiplicity="1" />
-          <End Role="TV" Type="Self.TV" Multiplicity="*" />
+          <End Role="TV" Type="Self.TV" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Products">
               <PropertyRef Name="ProductID" />
@@ -344,55 +332,23 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
         </Association>
         <EntityContainer Name="Joole_RBBTModelStoreContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Chair" EntityType="Self.Chair" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Consumers" EntityType="Self.Consumers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HomeTheater" EntityType="Self.HomeTheater" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TV" EntityType="Self.TV" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Chair" EntityType="Self.Chair" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Chair].[ProductID] AS [ProductID], 
-    [Chair].[subCategoryID] AS [subCategoryID], 
-    [Chair].[ProductHeight] AS [ProductHeight], 
-    [Chair].[ProductWidth] AS [ProductWidth], 
-    [Chair].[FrameMaterial] AS [FrameMaterial]
-    FROM [dbo].[Chair] AS [Chair]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="HomeTheater" EntityType="Self.HomeTheater" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [HomeTheater].[ProductID] AS [ProductID], 
-    [HomeTheater].[subCategoryID] AS [subCategoryID], 
-    [HomeTheater].[MaximumVideoResolution] AS [MaximumVideoResolution], 
-    [HomeTheater].[SurroundSound] AS [SurroundSound], 
-    [HomeTheater].[NumberofChannels] AS [NumberofChannels]
-    FROM [dbo].[HomeTheater] AS [HomeTheater]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [OrderDetails].[ProductID] AS [ProductID], 
     [OrderDetails].[OrderID] AS [OrderID], 
     [OrderDetails].[Quantity] AS [Quantity]
     FROM [dbo].[OrderDetails] AS [OrderDetails]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Table" EntityType="Self.Table" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Table].[ProductID] AS [ProductID], 
-    [Table].[subCategoryID] AS [subCategoryID], 
-    [Table].[ProductHeight] AS [ProductHeight], 
-    [Table].[ProductLength] AS [ProductLength], 
-    [Table].[MountStyle] AS [MountStyle]
-    FROM [dbo].[Table] AS [Table]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="TV" EntityType="Self.TV" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [TV].[ProductID] AS [ProductID], 
-    [TV].[subCategoryID] AS [subCategoryID], 
-    [TV].[DisplayType] AS [DisplayType], 
-    [TV].[VerticalResolution] AS [VerticalResolution], 
-    [TV].[ScreenSize] AS [ScreenSize]
-    FROM [dbo].[TV] AS [TV]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="Consumer_FK" Association="Self.Consumer_FK">
             <End Role="Users" EntitySet="Users" />
@@ -473,6 +429,18 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
           <NavigationProperty Name="Products" Relationship="Self.ProductsCategory_FK" FromRole="Category" ToRole="Products" />
           <NavigationProperty Name="SubCategories" Relationship="Self.SubCategory_FK" FromRole="Category" ToRole="SubCategory" />
         </EntityType>
+        <EntityType Name="Chair">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="subCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="ProductHeight" Type="Byte" />
+          <Property Name="ProductWidth" Type="Byte" />
+          <Property Name="FrameMaterial" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Product" Relationship="Self.ProductsChair_FK" FromRole="Chair" ToRole="Products" />
+          <NavigationProperty Name="SubCategory" Relationship="Self.SubCategoryChair_FK" FromRole="Chair" ToRole="SubCategory" />
+        </EntityType>
         <EntityType Name="Consumer">
           <Key>
             <PropertyRef Name="ConsumersID" />
@@ -500,6 +468,18 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
           <NavigationProperty Name="User" Relationship="Self.Customers_FK" FromRole="Customers" ToRole="Users" />
           <NavigationProperty Name="Products" Relationship="Self.ProductsCustomer_FK" FromRole="Customers" ToRole="Products" />
         </EntityType>
+        <EntityType Name="HomeTheater">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="subCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="MaximumVideoResolution" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SurroundSound" Type="Boolean" />
+          <Property Name="NumberofChannels" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Product" Relationship="Self.ProductsHomeTheater_FK" FromRole="HomeTheater" ToRole="Products" />
+          <NavigationProperty Name="SubCategory" Relationship="Self.SubCategoryHomeTheater_FK" FromRole="HomeTheater" ToRole="SubCategory" />
+        </EntityType>
         <EntityType Name="Order">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -524,12 +504,12 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
           <Property Name="ProductImage" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Category" Relationship="Self.ProductsCategory_FK" FromRole="Products" ToRole="Category" />
+          <NavigationProperty Name="Chair" Relationship="Self.ProductsChair_FK" FromRole="Products" ToRole="Chair" />
           <NavigationProperty Name="Customer" Relationship="Self.ProductsCustomer_FK" FromRole="Products" ToRole="Customers" />
-          <NavigationProperty Name="Chairs" Relationship="Self.ProductsChair_FK" FromRole="Products" ToRole="Chair" />
-          <NavigationProperty Name="HomeTheaters" Relationship="Self.ProductsHomeTheater_FK" FromRole="Products" ToRole="HomeTheater" />
+          <NavigationProperty Name="HomeTheater" Relationship="Self.ProductsHomeTheater_FK" FromRole="Products" ToRole="HomeTheater" />
           <NavigationProperty Name="SubCategory" Relationship="Self.ProductsSubCategory_FK" FromRole="Products" ToRole="SubCategory" />
-          <NavigationProperty Name="Tables" Relationship="Self.ProductsTable_FK" FromRole="Products" ToRole="Table" />
-          <NavigationProperty Name="TVs" Relationship="Self.ProductsTV_FK" FromRole="Products" ToRole="TV" />
+          <NavigationProperty Name="Table" Relationship="Self.ProductsTable_FK" FromRole="Products" ToRole="Table" />
+          <NavigationProperty Name="TV" Relationship="Self.ProductsTV_FK" FromRole="Products" ToRole="TV" />
         </EntityType>
         <EntityType Name="SubCategory">
           <Key>
@@ -539,9 +519,9 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
           <Property Name="CategoryID" Type="Int32" Nullable="false" />
           <Property Name="subCategoryName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Category" Relationship="Self.SubCategory_FK" FromRole="SubCategory" ToRole="Category" />
-          <NavigationProperty Name="Products" Relationship="Self.ProductsSubCategory_FK" FromRole="SubCategory" ToRole="Products" />
           <NavigationProperty Name="Chairs" Relationship="Self.SubCategoryChair_FK" FromRole="SubCategory" ToRole="Chair" />
           <NavigationProperty Name="HomeTheaters" Relationship="Self.SubCategoryHomeTheater_FK" FromRole="SubCategory" ToRole="HomeTheater" />
+          <NavigationProperty Name="Products" Relationship="Self.ProductsSubCategory_FK" FromRole="SubCategory" ToRole="Products" />
           <NavigationProperty Name="Tables" Relationship="Self.SubCategoryTable_FK" FromRole="SubCategory" ToRole="Table" />
           <NavigationProperty Name="TVs" Relationship="Self.SubCategoryTV_FK" FromRole="SubCategory" ToRole="TV" />
         </EntityType>
@@ -554,6 +534,30 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="subCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="ProductHeight" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ProductLength" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MountStyle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Product" Relationship="Self.ProductsTable_FK" FromRole="Table" ToRole="Products" />
+          <NavigationProperty Name="SubCategory" Relationship="Self.SubCategoryTable_FK" FromRole="Table" ToRole="SubCategory" />
+        </EntityType>
+        <EntityType Name="TV">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="subCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="DisplayType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VerticalResolution" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ScreenSize" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Product" Relationship="Self.ProductsTV_FK" FromRole="TV" ToRole="Products" />
+          <NavigationProperty Name="SubCategory" Relationship="Self.SubCategoryTV_FK" FromRole="TV" ToRole="SubCategory" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -568,32 +572,6 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
           <NavigationProperty Name="Customers" Relationship="Self.Customers_FK" FromRole="Users" ToRole="Customers" />
           <NavigationProperty Name="Orders" Relationship="Self.Orders_FK" FromRole="Users" ToRole="Orders" />
         </EntityType>
-        <EntityType Name="Chair">
-          <Key>
-            <PropertyRef Name="ProductID" />
-            <PropertyRef Name="subCategoryID" />
-          </Key>
-          <Property Name="ProductID" Type="Int32" Nullable="false" />
-          <Property Name="subCategoryID" Type="Int32" Nullable="false" />
-          <Property Name="ProductHeight" Type="Byte" />
-          <Property Name="ProductWidth" Type="Byte" />
-          <Property Name="FrameMaterial" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Product" Relationship="Self.ProductsChair_FK" FromRole="Chair" ToRole="Products" />
-          <NavigationProperty Name="SubCategory" Relationship="Self.SubCategoryChair_FK" FromRole="Chair" ToRole="SubCategory" />
-        </EntityType>
-        <EntityType Name="HomeTheater">
-          <Key>
-            <PropertyRef Name="ProductID" />
-            <PropertyRef Name="subCategoryID" />
-          </Key>
-          <Property Name="ProductID" Type="Int32" Nullable="false" />
-          <Property Name="subCategoryID" Type="Int32" Nullable="false" />
-          <Property Name="MaximumVideoResolution" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="SurroundSound" Type="Boolean" />
-          <Property Name="NumberofChannels" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="Product" Relationship="Self.ProductsHomeTheater_FK" FromRole="HomeTheater" ToRole="Products" />
-          <NavigationProperty Name="SubCategory" Relationship="Self.SubCategoryHomeTheater_FK" FromRole="HomeTheater" ToRole="SubCategory" />
-        </EntityType>
         <EntityType Name="OrderDetail">
           <Key>
             <PropertyRef Name="ProductID" />
@@ -604,32 +582,6 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
           <Property Name="OrderID" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Order" Relationship="Self.OrderDrtails_FK" FromRole="OrderDetails" ToRole="Orders" />
-        </EntityType>
-        <EntityType Name="Table">
-          <Key>
-            <PropertyRef Name="ProductID" />
-            <PropertyRef Name="subCategoryID" />
-          </Key>
-          <Property Name="ProductID" Type="Int32" Nullable="false" />
-          <Property Name="subCategoryID" Type="Int32" Nullable="false" />
-          <Property Name="ProductHeight" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="ProductLength" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="MountStyle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Product" Relationship="Self.ProductsTable_FK" FromRole="Table" ToRole="Products" />
-          <NavigationProperty Name="SubCategory" Relationship="Self.SubCategoryTable_FK" FromRole="Table" ToRole="SubCategory" />
-        </EntityType>
-        <EntityType Name="TV">
-          <Key>
-            <PropertyRef Name="ProductID" />
-            <PropertyRef Name="subCategoryID" />
-          </Key>
-          <Property Name="ProductID" Type="Int32" Nullable="false" />
-          <Property Name="subCategoryID" Type="Int32" Nullable="false" />
-          <Property Name="DisplayType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="VerticalResolution" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="ScreenSize" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="Product" Relationship="Self.ProductsTV_FK" FromRole="TV" ToRole="Products" />
-          <NavigationProperty Name="SubCategory" Relationship="Self.SubCategoryTV_FK" FromRole="TV" ToRole="SubCategory" />
         </EntityType>
         <Association Name="ProductsCategory_FK">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
@@ -652,6 +604,30 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
             </Principal>
             <Dependent Role="SubCategory">
               <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductsChair_FK">
+          <End Role="Products" Type="Self.Product" Multiplicity="1" />
+          <End Role="Chair" Type="Self.Chair" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Chair">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SubCategoryChair_FK">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
+          <End Role="Chair" Type="Self.Chair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="subCategoryID" />
+            </Principal>
+            <Dependent Role="Chair">
+              <PropertyRef Name="subCategoryID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -691,6 +667,30 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="ProductsHomeTheater_FK">
+          <End Role="Products" Type="Self.Product" Multiplicity="1" />
+          <End Role="HomeTheater" Type="Self.HomeTheater" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="HomeTheater">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SubCategoryHomeTheater_FK">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
+          <End Role="HomeTheater" Type="Self.HomeTheater" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="subCategoryID" />
+            </Principal>
+            <Dependent Role="HomeTheater">
+              <PropertyRef Name="subCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="OrderDrtails_FK">
           <End Role="Orders" Type="Self.Order" Multiplicity="1" />
           <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
@@ -715,30 +715,6 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ProductsChair_FK">
-          <End Role="Products" Type="Self.Product" Multiplicity="1" />
-          <End Role="Chair" Type="Self.Chair" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Products">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="Chair">
-              <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ProductsHomeTheater_FK">
-          <End Role="Products" Type="Self.Product" Multiplicity="1" />
-          <End Role="HomeTheater" Type="Self.HomeTheater" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Products">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="HomeTheater">
-              <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="ProductsSubCategory_FK">
           <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
           <End Role="Products" Type="Self.Product" Multiplicity="*" />
@@ -753,7 +729,7 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
         </Association>
         <Association Name="ProductsTable_FK">
           <End Role="Products" Type="Self.Product" Multiplicity="1" />
-          <End Role="Table" Type="Self.Table" Multiplicity="*" />
+          <End Role="Table" Type="Self.Table" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Products">
               <PropertyRef Name="ProductID" />
@@ -765,37 +741,13 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
         </Association>
         <Association Name="ProductsTV_FK">
           <End Role="Products" Type="Self.Product" Multiplicity="1" />
-          <End Role="TV" Type="Self.TV" Multiplicity="*" />
+          <End Role="TV" Type="Self.TV" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Products">
               <PropertyRef Name="ProductID" />
             </Principal>
             <Dependent Role="TV">
               <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="SubCategoryChair_FK">
-          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
-          <End Role="Chair" Type="Self.Chair" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SubCategory">
-              <PropertyRef Name="subCategoryID" />
-            </Principal>
-            <Dependent Role="Chair">
-              <PropertyRef Name="subCategoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="SubCategoryHomeTheater_FK">
-          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
-          <End Role="HomeTheater" Type="Self.HomeTheater" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SubCategory">
-              <PropertyRef Name="subCategoryID" />
-            </Principal>
-            <Dependent Role="HomeTheater">
-              <PropertyRef Name="subCategoryID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -825,18 +777,18 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
         </Association>
         <EntityContainer Name="Joole_RBBTEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Chairs" EntityType="Self.Chair" />
           <EntitySet Name="Consumers" EntityType="Self.Consumer" />
           <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="HomeTheaters" EntityType="Self.HomeTheater" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="Products" EntityType="Self.Product" />
           <EntitySet Name="SubCategories" EntityType="Self.SubCategory" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="Users" EntityType="Self.User" />
-          <EntitySet Name="Chairs" EntityType="Self.Chair" />
-          <EntitySet Name="HomeTheaters" EntityType="Self.HomeTheater" />
-          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
           <EntitySet Name="Tables" EntityType="Self.Table" />
           <EntitySet Name="TVs" EntityType="Self.TV" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
           <AssociationSet Name="ProductsCategory_FK" Association="Self.ProductsCategory_FK">
             <End Role="Category" EntitySet="Categories" />
             <End Role="Products" EntitySet="Products" />
@@ -844,6 +796,14 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
           <AssociationSet Name="SubCategory_FK" Association="Self.SubCategory_FK">
             <End Role="Category" EntitySet="Categories" />
             <End Role="SubCategory" EntitySet="SubCategories" />
+          </AssociationSet>
+          <AssociationSet Name="ProductsChair_FK" Association="Self.ProductsChair_FK">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Chair" EntitySet="Chairs" />
+          </AssociationSet>
+          <AssociationSet Name="SubCategoryChair_FK" Association="Self.SubCategoryChair_FK">
+            <End Role="SubCategory" EntitySet="SubCategories" />
+            <End Role="Chair" EntitySet="Chairs" />
           </AssociationSet>
           <AssociationSet Name="Consumer_FK" Association="Self.Consumer_FK">
             <End Role="Users" EntitySet="Users" />
@@ -857,6 +817,14 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
             <End Role="Customers" EntitySet="Customers" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
+          <AssociationSet Name="ProductsHomeTheater_FK" Association="Self.ProductsHomeTheater_FK">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="HomeTheater" EntitySet="HomeTheaters" />
+          </AssociationSet>
+          <AssociationSet Name="SubCategoryHomeTheater_FK" Association="Self.SubCategoryHomeTheater_FK">
+            <End Role="SubCategory" EntitySet="SubCategories" />
+            <End Role="HomeTheater" EntitySet="HomeTheaters" />
+          </AssociationSet>
           <AssociationSet Name="OrderDrtails_FK" Association="Self.OrderDrtails_FK">
             <End Role="Orders" EntitySet="Orders" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
@@ -864,14 +832,6 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
           <AssociationSet Name="Orders_FK" Association="Self.Orders_FK">
             <End Role="Users" EntitySet="Users" />
             <End Role="Orders" EntitySet="Orders" />
-          </AssociationSet>
-          <AssociationSet Name="ProductsChair_FK" Association="Self.ProductsChair_FK">
-            <End Role="Products" EntitySet="Products" />
-            <End Role="Chair" EntitySet="Chairs" />
-          </AssociationSet>
-          <AssociationSet Name="ProductsHomeTheater_FK" Association="Self.ProductsHomeTheater_FK">
-            <End Role="Products" EntitySet="Products" />
-            <End Role="HomeTheater" EntitySet="HomeTheaters" />
           </AssociationSet>
           <AssociationSet Name="ProductsSubCategory_FK" Association="Self.ProductsSubCategory_FK">
             <End Role="SubCategory" EntitySet="SubCategories" />
@@ -884,14 +844,6 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
           <AssociationSet Name="ProductsTV_FK" Association="Self.ProductsTV_FK">
             <End Role="Products" EntitySet="Products" />
             <End Role="TV" EntitySet="TVs" />
-          </AssociationSet>
-          <AssociationSet Name="SubCategoryChair_FK" Association="Self.SubCategoryChair_FK">
-            <End Role="SubCategory" EntitySet="SubCategories" />
-            <End Role="Chair" EntitySet="Chairs" />
-          </AssociationSet>
-          <AssociationSet Name="SubCategoryHomeTheater_FK" Association="Self.SubCategoryHomeTheater_FK">
-            <End Role="SubCategory" EntitySet="SubCategories" />
-            <End Role="HomeTheater" EntitySet="HomeTheaters" />
           </AssociationSet>
           <AssociationSet Name="SubCategoryTable_FK" Association="Self.SubCategoryTable_FK">
             <End Role="SubCategory" EntitySet="SubCategories" />
@@ -913,6 +865,17 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chairs">
+            <EntityTypeMapping TypeName="Joole_RBBTModel.Chair">
+              <MappingFragment StoreEntitySet="Chair">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="subCategoryID" ColumnName="subCategoryID" />
+                <ScalarProperty Name="ProductHeight" ColumnName="ProductHeight" />
+                <ScalarProperty Name="ProductWidth" ColumnName="ProductWidth" />
+                <ScalarProperty Name="FrameMaterial" ColumnName="FrameMaterial" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -939,6 +902,17 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="phone" ColumnName="phone" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HomeTheaters">
+            <EntityTypeMapping TypeName="Joole_RBBTModel.HomeTheater">
+              <MappingFragment StoreEntitySet="HomeTheater">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="subCategoryID" ColumnName="subCategoryID" />
+                <ScalarProperty Name="MaximumVideoResolution" ColumnName="MaximumVideoResolution" />
+                <ScalarProperty Name="SurroundSound" ColumnName="SurroundSound" />
+                <ScalarProperty Name="NumberofChannels" ColumnName="NumberofChannels" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -986,48 +960,6 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="Joole_RBBTModel.User">
-              <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Avatan" ColumnName="Avatan" />
-                <ScalarProperty Name="Credentials" ColumnName="Credentials" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Chairs">
-            <EntityTypeMapping TypeName="Joole_RBBTModel.Chair">
-              <MappingFragment StoreEntitySet="Chair">
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="subCategoryID" ColumnName="subCategoryID" />
-                <ScalarProperty Name="ProductHeight" ColumnName="ProductHeight" />
-                <ScalarProperty Name="ProductWidth" ColumnName="ProductWidth" />
-                <ScalarProperty Name="FrameMaterial" ColumnName="FrameMaterial" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HomeTheaters">
-            <EntityTypeMapping TypeName="Joole_RBBTModel.HomeTheater">
-              <MappingFragment StoreEntitySet="HomeTheater">
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="subCategoryID" ColumnName="subCategoryID" />
-                <ScalarProperty Name="MaximumVideoResolution" ColumnName="MaximumVideoResolution" />
-                <ScalarProperty Name="SurroundSound" ColumnName="SurroundSound" />
-                <ScalarProperty Name="NumberofChannels" ColumnName="NumberofChannels" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="OrderDetails">
-            <EntityTypeMapping TypeName="Joole_RBBTModel.OrderDetail">
-              <MappingFragment StoreEntitySet="OrderDetails">
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Tables">
             <EntityTypeMapping TypeName="Joole_RBBTModel.Table">
               <MappingFragment StoreEntitySet="Table">
@@ -1047,6 +979,26 @@ warning 6002: The table/view 'Joole_RBBT.dbo.TV' does not have a primary key def
                 <ScalarProperty Name="DisplayType" ColumnName="DisplayType" />
                 <ScalarProperty Name="VerticalResolution" ColumnName="VerticalResolution" />
                 <ScalarProperty Name="ScreenSize" ColumnName="ScreenSize" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Joole_RBBTModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Avatan" ColumnName="Avatan" />
+                <ScalarProperty Name="Credentials" ColumnName="Credentials" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="Joole_RBBTModel.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetails">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

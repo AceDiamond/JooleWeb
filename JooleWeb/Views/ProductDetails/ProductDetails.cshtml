@@ -1,4 +1,5 @@
-﻿
+﻿@model JooleWeb.Models.ProductDetails
+
 @{
     ViewBag.Title = "ProductDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -36,15 +37,15 @@
         <thead>
             <tr>
                 <th>Description</th>
-                <th>Type</th>
+                <th>Price</th>
                 <th>Product Specifications</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>cell1_1</td>
-                <td>cell1_2</td>
-                <td>cell1_3</td>
+                <td>@Html.TextBoxFor(model => model.description)</td>
+                <td>@Html.TextBoxFor(model => model.price)</td>
+                <td>@Html.TextBoxFor(model => model.productSpec[0])</td>
             </tr>
         </tbody>
     </table>

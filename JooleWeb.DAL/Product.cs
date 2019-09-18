@@ -14,15 +14,6 @@ namespace JooleWeb.DAL
     
     public partial class Product
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
-        {
-            this.Chairs = new HashSet<Chair>();
-            this.HomeTheaters = new HashSet<HomeTheater>();
-            this.Tables = new HashSet<Table>();
-            this.TVs = new HashSet<TV>();
-        }
-    
         public int ProductID { get; set; }
         public string ProductsName { get; set; }
         public int CustomerID { get; set; }
@@ -33,15 +24,11 @@ namespace JooleWeb.DAL
         public string Description { get; set; }
     
         public virtual Category Category { get; set; }
+        public virtual Chair Chair { get; set; }
         public virtual Customer Customer { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Chair> Chairs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HomeTheater> HomeTheaters { get; set; }
+        public virtual HomeTheater HomeTheater { get; set; }
         public virtual SubCategory SubCategory { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Table> Tables { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TV> TVs { get; set; }
+        public virtual Table Table { get; set; }
+        public virtual TV TV { get; set; }
     }
 }
