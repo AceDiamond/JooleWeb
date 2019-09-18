@@ -5,6 +5,7 @@ using System.Web;
 using System.Windows;
 using System.Web.Mvc;
 
+
 namespace JooleWeb.Controllers
 {
     public class SignUpController : Controller
@@ -31,7 +32,7 @@ namespace JooleWeb.Controllers
                 {
                     string message = "Your have successfully signed up!";
                     MessageBox.Show(message);
-                    return RedirectToAction("Search", "Search");
+                    return RedirectToAction("Login", "Index");
                 }
                 else if(Success == 1)
                 {
