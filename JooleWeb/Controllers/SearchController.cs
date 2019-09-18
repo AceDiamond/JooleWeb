@@ -74,7 +74,7 @@ namespace JooleWeb.Controllers
             }
             else
             {*/
-                return RedirectToAction("Summary", "Product", new { subCate = subCategory, cate = Category });
+                return RedirectToAction("Summary", "Summary", new { cat = Category, catSub = subCategory});
             //}
         }
     }
