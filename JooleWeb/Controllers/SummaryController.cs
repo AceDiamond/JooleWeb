@@ -3,87 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using JooleWeb.Models;
+using JooleWeb.SEV;
+using JooleWeb.DAL;
 
 namespace JooleWeb.Controllers
 {
     public class SummaryController : Controller
     {
         // GET: Summary
-        public ActionResult Index()
+        public ActionResult Summary()
         {
-            return View();
-        }
 
-        // GET: Summary/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+            
 
-        // GET: Summary/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+            JooleWeb.SEV.Service ProductSummary = new JooleWeb.SEV.Service();
+            List<Product> products = ProductSummary.AllSummary();
+            var productList = new List<Summary>();
 
-        // POST: Summary/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
+
+            foreach(var item in products)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                var productItem = new Summary();
+                productItem.productName = item.ProductsName;
+                productItem.Category = item.CategoryID.ToString();
+                productItem.subcat = item.SubcategoryID.ToString();
+                productItem.image = item.ProductImage;
+                productItem.price = item.Price.ToString();
+                productItem.desc = item.Description;
+                productList.Add(productItem);
             }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Summary/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Summary/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Summary/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Summary/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return View(productList);
         }
     }
 }

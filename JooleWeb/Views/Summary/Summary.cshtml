@@ -1,0 +1,79 @@
+﻿@model List<JooleWeb.Models.Summary>
+
+@{
+    ViewBag.Title = "Summary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Summary</h2>
+
+<style>
+    #Summary-div {
+        position: absolute;
+        left: 40%;
+        top: 40%;
+        border: 3px solid #ccc;
+        padding: 10px;
+    }
+
+    table, th, td {
+  border: 1px solid black;
+}
+    #Filter {
+        position:absolute;
+        left: 10%;
+        top: 40%;
+        border: 5px solid #f00;
+        padding: 10px;
+
+    }
+
+</style>
+
+
+<div id="Summary-div">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Category</th>
+            <th>Type</th>
+            <th>Price</th>
+            <th>Description</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td> @item.productName</td>
+                <td> @item.image</td>
+                <td> @item.Category</td>
+                <td> @item.subcat</td>
+                <td> @item.price</td>
+                <td> @item.desc</td>
+            </tr>
+        }
+
+    </table>
+
+</div>
+
+
+
+<div id="Filter">
+    <div class="slidecontainer">
+        <p><span style='font-size:20px;'>&#8645;</span> &nbsp;&nbsp;Parameter 1:</p>
+        <input type="range" min="1" max="100" value="50"><br>
+        <p><span style='font-size:20px;'>&#8645;</span> &nbsp;&nbsp;Max Power (W):</p>
+        <input type="range" min="1" max="100" value="50"><br>
+        <p><span style='font-size:20px;'>&#8645;</span> &nbsp;Sound at max speed (dBA):</p>
+        <input type="range" min="1" max="100" value="50"><br>
+    </div>
+
+</div>
+
+<link href="~/Content/search.css" rel="stylesheet" id="bootstrap-css">
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>

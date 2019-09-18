@@ -23,8 +23,20 @@ namespace JooleWeb
                  url: "Search/Search",
                  defaults: new { controller = "Search", action = "Index", id = UrlParameter.Optional }
              );
-            routes.MapRoute(name: "Home", url: "Home/Login", 
-              defaults: new { controller = "Login", action = "Login", id = UrlParameter.Optional });
+            routes.MapRoute(
+                name: "Home",
+                url: "Home/Login", 
+                defaults: new { controller = "Login", action = "index", id = UrlParameter.Optional });
+
+            routes.MapRoute(
+                name: "Summary",
+                url: "Home/Summary",
+                defaults: new { controller = "Summary", action = "Summary", id = UrlParameter.Optional });
+
+            routes.MapRoute(
+                name: "Summary2",
+                url: "Summary/Summary",
+                defaults: new { controller = "Summary", action = "Summary", id = UrlParameter.Optional });
 
             routes.MapRoute(
                 name: "Default",
