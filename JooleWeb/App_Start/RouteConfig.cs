@@ -19,6 +19,11 @@ namespace JooleWeb
                  defaults: new { controller = "Search", action = "Index", id = UrlParameter.Optional }
              );
             routes.MapRoute(
+                 name: "Compare",
+                 url: "Compare",
+                 defaults: new { controller = "Compare", action = "Index", id = UrlParameter.Optional }
+             );
+            routes.MapRoute(
                  name: "ProductDetails",
                  url: "ProductDetails",
                  defaults: new { controller = "ProductDetails", action = "Index", id = UrlParameter.Optional }
