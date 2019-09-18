@@ -12,6 +12,7 @@ namespace JooleWeb.Models
         public List<String> productSpec { get; set; }
 
         public string productName { get; set; }
+        public string productImage { get; set; }
 
     }
 }

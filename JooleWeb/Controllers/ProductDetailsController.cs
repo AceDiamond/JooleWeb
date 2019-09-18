@@ -20,6 +20,7 @@ namespace JooleWeb.Controllers
         {
             var newService = new Service();
             ProductDetails productdetails = new ProductDetails();
+            productdetails.productImage = newService.getProductImg(id);
             productdetails.description = newService.getProductDescription(id);
             productdetails.price = newService.getProductPrice(id);
             productdetails.productSpec = newService.getProductSpec(id);

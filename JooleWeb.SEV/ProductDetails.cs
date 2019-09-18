@@ -43,6 +43,15 @@ namespace JooleWeb.SEV
             }
             return uow.product.GetByID(id).ProductsName;
         }
+        
+        public string getProductImg(int id)
+        {
+            if (uow.product.GetByID(id).ProductImage == null)
+            {
+                return "N/A";
+            }
+            return uow.product.GetByID(id).ProductImage;
+        }
 
         public List<String> getProductSpec(int id)
         {
