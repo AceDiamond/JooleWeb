@@ -65,16 +65,16 @@ namespace JooleWeb.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(string term, string Category)
+        public ActionResult Index(string subCategory, string Category)
         {
-            if (string.IsNullOrEmpty(term))
+            if (string.IsNullOrEmpty(subCategory))
             {
-                return RedirectToAction("Summary", "Product", new { searchString = term });
+                return RedirectToAction("Summary", "Product", new { searchString = subCategory });
 
             }
             else
             {
-                return RedirectToAction("Summary", "Product", new { searchString = term });
+                return RedirectToAction("Summary", "Product", new { searchString = subCategory });
             }
         }
     }
